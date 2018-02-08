@@ -90,9 +90,9 @@ interact('.dropzone').dropzone({
           // Get the value for classlist.item
           // find input related to item (hidden)
           // updae value in that input
+
         } else {
           draggableElement.classList.add('can-not-drop');
-
         }
 
         draggableElement.textContent = 'Dragged in';
@@ -105,7 +105,33 @@ interact('.dropzone').dropzone({
         event.relatedTarget.textContent = 'Dragged out';
     },
     ondrop: function(event) {
-        event.relatedTarget.textContent = 'Dropped';
+
+        let dropzoneElement = event.target;
+        let element = event.relatedTarget;
+
+        // Lets check if this is a valid drop zone
+        if (dropzoneElement.classList.contains(element.classList.item(2))) {
+
+            element.textContent = 'Dropped';
+
+        } else {
+
+            // Remove our 'no-drop' indicator (red background)
+            event.relatedTarget.classList.remove('can-not-drop');
+
+            // Removes the initial transform/translation of the item
+            element.style.transform = 'none';
+
+            // But moving an item puts a 'data-x' and 'data-y' attribute on the
+            // element which we need to remove as well.
+            element.removeAttribute("data-x");
+            element.removeAttribute("data-y");
+
+        }
+
+
+
+
     },
     ondropdeactivate: function(event) {
         // remove active dropzone feedback
