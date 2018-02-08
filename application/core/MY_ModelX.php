@@ -12,11 +12,12 @@ require_once 'DataMapper.php';
  * @copyright           Copyright (c) 2010-2017, James L. Parry
  * ------------------------------------------------------------------------
  */
-class MY_Model extends CI_Model implements DataMapper
+class MY_ModelX extends CI_Model implements DataMapper
 {
 
 	protected $_tableName;   // Which table is this a model for?
 	protected $_keyField; // name of the primary key field
+	protected $_entity; // name of the associated entity class for records
 
 //---------------------------------------------------------------------------
 //  Housekeeping methods
@@ -26,8 +27,9 @@ class MY_Model extends CI_Model implements DataMapper
 	 * Constructor.
 	 * @param string $tablename Name of the RDB table
 	 * @param string $keyfield  Name of the primary key field
+	 * @param string $entity Name of the associated entity class, if any
 	 */
-	function __construct($tablename = null, $keyfield = 'id')
+	function __construct($tablename = null, $keyfield = 'id', $entity = null)
 	{
 		parent::__construct();
 
@@ -37,6 +39,10 @@ class MY_Model extends CI_Model implements DataMapper
 			$this->_tableName = $tablename;
 
 		$this->_keyField = $keyfield;
+		
+		// handle the entity class
+		if (empty($entity)) $entity = 'stdClass';
+		$this->_entity = $entity;
 	}
 
 //---------------------------------------------------------------------------
@@ -68,10 +74,11 @@ class MY_Model extends CI_Model implements DataMapper
 	// Create a new data object.
 	// Only use this method if intending to create an empty record and then
 	// populate it.
+	// Update: handle entity
 	function create()
 	{
 		$names = $this->db->list_fields($this->_tableName);
-		$object = new StdClass;
+		$object = new $this->_entity;
 		foreach ($names as $name)
 			$object->$name = "";
 		return $object;
@@ -94,14 +101,15 @@ class MY_Model extends CI_Model implements DataMapper
 		$object = $this->db->insert($this->_tableName, $data);
 	}
 
-	// Retrieve an existing DB record as an object
+	// Retrieve an existing DB record as an entity object
+	//FIXME
 	function get($key, $key2 = null)
 	{
 		$this->db->where($this->_keyField, $key);
 		$query = $this->db->get($this->_tableName);
 		if ($query->num_rows() < 1)
 			return null;
-		return $query->row();
+		return  $query->row();
 	}
 
 	// Update a record in the DB
@@ -142,7 +150,8 @@ class MY_Model extends CI_Model implements DataMapper
 //---------------------------------------------------------------------------
 //  Aggregate methods
 //---------------------------------------------------------------------------
-	// Return all records as an array of objects
+	// Return all records as an array of entity objects
+	//FIXME
 	function all()
 	{
 		$this->db->order_by($this->_keyField, 'asc');
@@ -151,6 +160,7 @@ class MY_Model extends CI_Model implements DataMapper
 	}
 
 	// Return all records as a result set
+	//FIXME?
 	function results()
 	{
 		$this->db->order_by($this->_keyField, 'asc');
@@ -159,6 +169,7 @@ class MY_Model extends CI_Model implements DataMapper
 	}
 
 	// Return the most recent records as a result set
+	//FIXME?
 	function trailing($count = 10)
 	{
 		$start = $this->db->count_all($this->_tableName) - $count;
@@ -170,7 +181,8 @@ class MY_Model extends CI_Model implements DataMapper
 		return $query;
 	}
 
-	// Return filtered records as an array of records
+	// Return filtered records as an array of entity records
+	//FIXME
 	function some($what, $which)
 	{
 		$this->db->order_by($this->_keyField, 'asc');
@@ -197,16 +209,18 @@ class MY_Model extends CI_Model implements DataMapper
 			return null;
 	}
 
-	// Retrieve first record from a table.
+	// Retrieve first entity record from a table.
+	//FIXME
 	function first()
 	{
 		if ($this->size() < 1)
 			return null;
 		$query = $this->db->get($this->_tableName, 1, 1);
-		return $query->result()[0];
+		return  $query->result()[0];
 	}
 
-	// Retrieve records from the beginning of a table.
+	// Retrieve entity records from the beginning of a table.
+	//FIXME
 	function head($count = 10)
 	{
 		$this->db->limit(10);
@@ -215,7 +229,8 @@ class MY_Model extends CI_Model implements DataMapper
 		return $query->result();
 	}
 
-	// Retrieve records from the end of a table.
+	// Retrieve entity records from the end of a table.
+	//FIXME
 	function tail($count = 10)
 	{
 		$start = $this->db->count_all($this->_tableName) - $count;
@@ -238,23 +253,24 @@ class MY_Model extends CI_Model implements DataMapper
 /**
  * Support for RDB persistence with a compound (two column) key.
  */
-class MY_Model2 extends MY_Model
+class MY_Model2X extends MY_ModelX
 {
 
 	protected $_keyField2;  // second part of composite primary key
 
 	// Constructor
 
-	function __construct($tablename = null, $keyfield = 'id', $keyfield2 = 'part')
+	function __construct($tablename = null, $keyfield = 'id', $keyfield2 = 'part', $entity=null)
 	{
-		parent::__construct($tablename, $keyfield);
+		parent::__construct($tablename, $keyfield, $entity);
 		$this->_keyField2 = $keyfield2;
 	}
 
 //---------------------------------------------------------------------------
 //  Record-oriented functions
 //---------------------------------------------------------------------------
-	// Retrieve an existing DB record as an object
+	// Retrieve an existing DB record as an entity object
+	//FIXME
 	function get($key1, $key2)
 	{
 		$this->db->where($this->_keyField, $key1);
@@ -262,7 +278,7 @@ class MY_Model2 extends MY_Model
 		$query = $this->db->get($this->_tableName);
 		if ($query->num_rows() < 1)
 			return null;
-		return $query->row();
+		return  $query->row();
 	}
 
 	// Update a record in the DB
@@ -307,7 +323,8 @@ class MY_Model2 extends MY_Model
 //---------------------------------------------------------------------------
 //  Composite functions
 //---------------------------------------------------------------------------
-	// Return all records associated with a member
+	// Return all entity records associated with a member
+	//FIXME
 	function group($key)
 	{
 		$this->db->where($this->_keyField, $key);
@@ -342,7 +359,8 @@ class MY_Model2 extends MY_Model
 //---------------------------------------------------------------------------
 //  Aggregate functions
 //---------------------------------------------------------------------------
-	// Return all records as an array of objects
+	// Return all records as an array of entity objects
+	//FIXME
 	function all($primary = null)
 	{
 		$this->db->order_by($this->_keyField, 'asc');

@@ -1,0 +1,129 @@
+body {
+    height: 100%;
+}
+
+.avatar {
+    width: 360px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#guy {
+    position: fixed;
+    /*for the img inside your div */
+    height: 720px;
+}
+
+.dropzone {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.4);
+    border: dashed 4px transparent;
+    border-radius: 4px;
+    margin: 10px auto 30px;
+    padding: 10px;
+    min-width: 90px;
+    min-height: 90px;
+    transition: background-color 0.3s;
+    pointer-events: none;
+    z-index: -900;
+}
+
+.drop-active {
+    border-color: #aaa;
+}
+
+.drop-target {
+    background-color: rgba(10, 0, 150, 0.4);
+    border-color: #fff;
+    border-style: solid;
+}
+
+.drag-drop {
+    flex-wrap: wrap;
+    width: 80px;
+    height: 80px;
+    padding: 0.5em 0.5em;
+    color: #fff;
+    background-color: rgba(10, 0, 150, 0.4);
+    border-radius: 10px;
+    -webkit-transform: translate(0px, 0px);
+    transform: translate(0px, 0px);
+    transition: background-color 0.3s;
+    z-index: 900;
+}
+
+.drag-drop:hover {
+  background-color: rgba(10, 10, 150, 0.8);
+}
+
+.drag-drop.can-drop {
+    color: #000;
+    background-color: rgba(10, 200, 0, 0.8);
+}
+
+.drag-drop.can-not-drop {
+    color: #000;
+    background-color: rgba(200, 10, 0, 0.8);
+}
+
+#overlay {
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    /* Sit on top of the page content */
+    /* Hidden by default */
+    width: 940px;
+    margin-left: auto;
+    margin-right: auto;
+    /* Full width (cover the whole page) */
+    height: 100%;
+    /* Full height (cover the whole page) */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* Black background with opacity */
+    z-index: 2;
+    /* Specify a stack order in case you're using a different order for other elements */
+    cursor: pointer;
+    /* Add a pointer on hover */
+}
+
+.slots {
+  color: #FFF;
+    width: 40%;
+    height: 100%;
+}
+
+#head {
+    position: absolute;
+    top: 0;
+    left: 43%;
+}
+
+#accessory {
+    position: absolute;
+    top: 35%;
+    left: 55%;
+}
+
+#weapon {
+    position: absolute;
+    top: 45%;
+    left: 35%;
+}
+
+#chest {
+    position: absolute;
+    top: 20%;
+    left: 45%;
+}
+
+.items {
+    width: 30%;
+}
+
+.stats {
+  background-color: red;
+  width: 30%;
+}
