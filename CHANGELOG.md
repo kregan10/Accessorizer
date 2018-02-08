@@ -24,3 +24,9 @@ Features:
 Features:
 
     - Added categories model
+
+## 1.0.2 (2018-02-18)
+
+    Features:
+
+        - Added Homepage functionality

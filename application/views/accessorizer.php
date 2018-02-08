@@ -6,7 +6,7 @@
 
         <!-- These are the items.
         TODO: give an ID to each for indentification -->
-        <div class="items">
+        <div id="all-items" class="items">
 
             <h2>Weapon</h2>
             <img id="frying-pan" class="draggable drag-drop weapon" src="assets/img/frying-pan.png" />
@@ -51,22 +51,37 @@
             </div>
         </div>
 
-    <form action="" method="POST">
-        <input type="text" name="head" value="" hidden>
-        <input type="text" name="chest" value="" hidden>
-        <input type="text" name="weapon" value="" hidden>
-        <input type="text" name="accessory" value="" hidden>
-        <input type="submit" name="submit" value="submit">
-    </form>
+
 
         <div class="stats">
+          <h3>Weight</h3>
+          <div class="progress">
+            <div class="progress-bar bg-info" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%">
+              <span class="sr-only">70% Complete</span>
+            </div>
+          </div>
+          <h3>Damage</h3>
+          <div class="progress">
+            <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%">
+              <span class="sr-only">70% Complete</span>
+            </div>
+          </div>
+          <h3>Protection</h3>
+          <div class="progress">
+            <div class="progress-bar bg-success" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%">
+              <span class="sr-only">70% Complete</span>
+            </div>
+          </div>
+
+          <form action="" method="POST">
+              <input type="text" name="head" value="" hidden>
+              <input type="text" name="chest" value="" hidden>
+              <input type="text" name="weapon" value="" hidden>
+              <input type="text" name="accessory" value="" hidden>
+              <input class="btn-succes" type="submit" name="submit" value="submit">
+          </form>
 
         </div>
 
     </div>
 </div>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
-<script type="text/javascript" src="assets/js/interact.js"></script>
-<script type="text/javascript" src="assets/js/index.js"></script>
