@@ -13,6 +13,6 @@ class Categories extends CSV_Model
      */
     function __construct()
     {
-        parent::__construct("data/Categories.csv", "id", "entity");
+        parent::__construct(APPPATH . "../data/Categories.csv", "id", "categories");
     }
 }
