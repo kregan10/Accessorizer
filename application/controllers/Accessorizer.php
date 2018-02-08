@@ -9,6 +9,7 @@ class Accessorizer extends Application
 	public function index()
 	{
 		$this->data['pagebody'] = 'accessorizer';
+		$this->data['pagetitle'] = 'Accessorize Soldier!';
 		$this->render();
 	}
 

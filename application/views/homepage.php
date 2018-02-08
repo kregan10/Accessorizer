@@ -1,6 +1,6 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-sm-4" style="background-color:yellow;">
+    <div class="col-sm-4">
       <div class="dropdown">
         <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown">Choose your preset
         <span class="caret"></span></button>
