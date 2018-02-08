@@ -1,5 +1,7 @@
 # CHANGELOG.md
 
+### Note: Add changelog at the bottom of the file
+
 ## 1.0.0 (2018-02-08)
 
 Features:
@@ -16,3 +18,9 @@ Features:
 
     - Adding categories to the 'accessorizer' page
     - Removed extraneous items. Sticking to 3 for each category.
+
+## 1.0.2 (2018-02-18)
+
+Features:
+
+    - Added categories model
