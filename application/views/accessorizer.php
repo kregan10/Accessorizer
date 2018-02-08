@@ -52,16 +52,9 @@
         <input type="text" name="weapon" value$="" hidden>
         <input type="text" name="accessory" value$="" hidden>
 
-
-
         <div class="stats">
 
         </div>
 
     </div>
 </div>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
-<script type="text/javascript" src="assets/js/interact.js"></script>
-<script type="text/javascript" src="assets/js/index.js"></script>

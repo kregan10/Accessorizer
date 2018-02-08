@@ -8,10 +8,26 @@ body {
     margin-right: auto;
 }
 
+.title-container {
+  text-align: center;
+}
+
 #guy {
     position: fixed;
     /*for the img inside your div */
     height: 720px;
+}
+
+#home-page-guy {
+    max-width:300px;
+}
+
+#home-page-guy-container {
+    margin: auto;
+    width: 50%;
+    border: 3px solid green;
+    padding: 10px;
+    text-align: center;
 }
 
 .dropzone {
