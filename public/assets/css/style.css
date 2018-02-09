@@ -8,10 +8,26 @@ body {
     margin-right: auto;
 }
 
+.title-container {
+  text-align: center;
+}
+
 #guy {
     position: fixed;
     /*for the img inside your div */
     height: 720px;
+}
+
+#home-page-guy {
+    max-width:300px;
+}
+
+#home-page-guy-container {
+    margin: auto;
+    width: 50%;
+    border: 3px solid green;
+    padding: 10px;
+    text-align: center;
 }
 
 .dropzone {
@@ -97,25 +113,25 @@ body {
 
 #head {
     position: absolute;
-    top: 0;
+    top: 15%;
     left: 43%;
 }
 
 #accessory {
     position: absolute;
-    top: 35%;
+    top: 50%;
     left: 55%;
 }
 
 #weapon {
     position: absolute;
-    top: 45%;
+    top: 60%;
     left: 35%;
 }
 
 #chest {
     position: absolute;
-    top: 20%;
+    top: 35%;
     left: 45%;
 }
 
@@ -123,9 +139,13 @@ body {
     width: 30%;
 }
 
+#all-items {
+  margin-top: 100px;
+}
+
 .stats {
-  background-color: red;
   width: 30%;
+  margin-top: 120px;
 }
 
 .couponcode:hover .coupontooltip {

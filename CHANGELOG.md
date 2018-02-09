@@ -24,3 +24,19 @@ Features:
 Features:
 
     - Added categories model
+
+## 1.0.3 (2018-02-18)
+
+    Features:
+
+        - Added Homepage functionality
+
+## 1.0.4 (2018-02-18)
+
+    Features:
+
+        - Added info controller
+        - Bug fixed CSV Model to load correctly
+        - Bug fixed MY_Model to load correctly
+        - Added dummy data to CSV
+        - Fixed autoload for categories
