@@ -14,6 +14,8 @@ class Accessories extends CSV_Model
     public $damage;
     // Accessories protection
     public $protection;
+    // Accessories display name
+    public $displayName;
     // Categories id (foriegn key)
     public $categoriesId;
 
