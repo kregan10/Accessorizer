@@ -66,3 +66,4 @@ Features:
     Fixes:
 
         - Reference to drag-and-drop library removed from template. Had to put it back in.
+        - Syntax error in accessories model
