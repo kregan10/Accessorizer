@@ -6,7 +6,7 @@ class Sets extends CSV_Model
     // Sets name
     public $name;
     // Sets weapon
-    public weapon;
+    public $weapon;
     // Sets head
     public $head;
     // Sets chest
