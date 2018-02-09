@@ -80,3 +80,9 @@ Features:
 
         - Removed unnecessary assets 
         - Updated CSV file
+
+## 1.0.11 (2018-02-18)
+
+    Features:
+
+        - Added body functionality for the info controller.
