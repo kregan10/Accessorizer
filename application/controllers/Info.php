@@ -59,12 +59,21 @@ class Info extends Application
 	 */
 	public function catalog($key = null)
 	{
-		// Check if key passed
-		if ($key === null) {
+		// Encode data as json.
+		$data = json_encode($this->accessories->get($key));
 
-		} else {
-
+		// Check if specific category exists.
+		if (is_null($key))
+		{
+			$data = json_encode($this->accessories->all());
 		}
+
+		// Set correct json/output request details.
+		$this->output->set_content_type('application/json');
+		$this->output->set_output($data);
+
+		// Return the data as json.
+		return $this;
 	}
 
 	/**
