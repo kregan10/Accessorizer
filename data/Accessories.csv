@@ -11,4 +11,3 @@ id,name,image,weight,damage,protection,categoriesId
 9,level1-vest,assets/img/level1-vest.png,30,0,40,1
 10,level2-vest,assets/img/level2-vest.png,35,0,50,1
 11,level3-vest,assets/img/level3-vest.png,40,0,60,1
->>>>>>> develop
