@@ -80,12 +80,13 @@
             </div>
           </div>
 
-          <form action="" method="POST">
+          <form class="row" action="" method="POST">
               <input type="text" name="head" value="" hidden>
               <input type="text" name="chest" value="" hidden>
               <input type="text" name="weapon" value="" hidden>
               <input type="text" name="accessory" value="" hidden>
-              <input class="btn btn-success" type="submit" name="submit" value="Submit">
+              <input id="set-name" class="form-control" type="text" name="set" placeholder="Enter Set Name">
+              <input id="set-save" class="btn btn-success mx-auto" type="submit" name="submit" value="Save">
           </form>
 
         </div>
