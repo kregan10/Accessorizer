@@ -60,3 +60,9 @@ Features:
 
         - Implemented the menubar partial.
         - Added loading of links from config.
+
+## 1.0.8 (2018-02-18)
+
+    Fixes:
+
+        - Reference to drag-and-drop library removed from template. Had to put it back in.
