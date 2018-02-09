@@ -89,3 +89,11 @@ Features:
         - Added sets model
         - Added sets autoload
         - Added sets CSV
+        
+## 1.0.12 (2018-02-18)
+
+    Features:
+
+        - Added limit to items of certain categories
+        - Added input field for set name on catalog page.
+

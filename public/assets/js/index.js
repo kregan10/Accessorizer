@@ -15,9 +15,17 @@ function fn(e) {
 /* Drag-and-Drop Stuff
 ------------------------------------------------------------------------*/
 
-var element = document.getElementsByClassName('dropzone'),
+let element = document.getElementsByClassName('dropzone'),
     x = 0,
     y = 0;
+
+// initialize equipped bools
+let isEquipped = {
+    head:       false,
+    chest:      false,
+    weapon:     false,
+    accessory:  false
+}
 
 // target elements with the "draggable" class
 interact('.draggable')
@@ -85,7 +93,7 @@ interact('.dropzone').dropzone({
         '#chest'
     ],
     // Require a 75% element overlap for a drop to be possible
-    overlap: 0.75,
+    overlap: 0.85,
 
     // listen for drop related events:
     ondropactivate: function(event) {
@@ -116,10 +124,16 @@ interact('.dropzone').dropzone({
     },
     ondragleave: function(event) {
         // remove the drop feedback style
-        event.target.classList.remove('drop-target');
-        event.relatedTarget.classList.remove('can-drop');
-        event.relatedTarget.classList.remove('can-not-drop');
-        event.relatedTarget.textContent = 'Dragged out';
+        let element = event.relatedTarget;
+        let dropzoneElement = event.target;
+
+        isEquipped[element.classList.item(2)] = false;
+
+        dropzoneElement.classList.remove('drop-target');
+        element.classList.remove('can-drop');
+        element.classList.remove('can-not-drop');
+
+        element.textContent = 'Dragged out';
     },
     ondrop: function(event) {
 
@@ -127,14 +141,19 @@ interact('.dropzone').dropzone({
         let element = event.relatedTarget;
 
         // Lets check if this is a valid drop zone
-        if (dropzoneElement.classList.contains(element.classList.item(2))) {
+        if (dropzoneElement.classList.contains(element.classList.item(2))
+            && !isEquipped[element.classList.item(2)]) {
 
             element.textContent = 'Dropped';
+            isEquipped[element.classList.item(2)] = true;
+
+            console.log(element.classList.item(2) + ": " + isEquipped[element.classList.item(2)]);
 
         } else {
 
             // Remove our 'no-drop' indicator (red background)
             event.relatedTarget.classList.remove('can-not-drop');
+            event.relatedTarget.classList.remove('can-drop');
 
             // Removes the initial transform/translation of the item
             element.style.transform = 'none';
