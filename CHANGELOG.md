@@ -78,7 +78,7 @@ Features:
 
     Fixes:
 
-        - Removed unnecessary assets 
+        - Removed unnecessary assets
         - Updated CSV file
 
 ## 1.0.11 (2018-02-18)
@@ -86,3 +86,6 @@ Features:
     Features:
 
         - Added body functionality for the info controller.
+        - Added sets model
+        - Added sets autoload
+        - Added sets CSV
