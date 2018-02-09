@@ -3,11 +3,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 // the menu basics (text navbar)
 $config['menu_choices'] = array(
+    'menubrand' => 'Accessorizer',
     'menudata' => array(
         array('name' => 'Home', 'link' => '/'),
+        array('name' => 'Catalog', 'link' => '/catalog'),
         array('name' => 'Accessorizer', 'link' => '/accessorizer')
-        )
-    );
+    )
+);
 
 /*
 |--------------------------------------------------------------------------
