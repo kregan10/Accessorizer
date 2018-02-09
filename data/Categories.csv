@@ -1,5 +1,5 @@
 id,name,description
-0,head,The head
-1,chest,The chest
-2,accessory,The accessory
-3,weapon,The weapon
+0,Weapon,The weapon
+1,Head,The head
+2,Accessory,The accessory
+3,Chest,The chest

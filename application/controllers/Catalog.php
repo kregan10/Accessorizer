@@ -1,5 +1,7 @@
 <?php
 
+defined('BASEPATH') OR exit('No direct script access allowed');
+
 class Catalog extends Application
 {
 
@@ -8,7 +10,11 @@ class Catalog extends Application
 	 */
 	public function index()
 	{
-		$this->data['pagebody'] = 'catalog';
+        $accessories = $this->accessories->all();
+        $categories = $this->categories->all();
+        $this->data['accessories'] = $accessories;
+        $this->data['categories'] = $categories;
+        $this->data['pagebody'] = 'catalog';
 		$this->data['pagetitle'] = 'Accessorize Soldier!';
 		$this->render();
 	}

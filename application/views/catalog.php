@@ -7,35 +7,21 @@
         <!-- These are the items.
         TODO: give an ID to each for indentification -->
         <div id="all-items" class="items">
-
-            <h2>Weapon</h2>
-            <!-- FOR JASON -->
-            <div id="frying-pan" class="couponcode">
-                <img class="draggable drag-drop weapon" src="assets/img/frying-pan.png"/>
+          <?php $count = -1; ?>
+          <?php foreach ($accessories as $accessory): ?>
+            <?php if ($count < $accessory->categoriesId): ?>
+                <?php $count = $accessory->categoriesId; ?>
+                <h2><?php echo $categories[$count]->name; ?></h2>
+            <?php endif; ?>
+            <div id="<?php echo $accessory->name; ?>" class="couponcode">
+              <img class="draggable drag-drop <?php echo strtolower($categories[$accessory->categoriesId]->name); ?>" src="<?php echo $accessory->image; ?>"/>
                 <div class="coupontooltip">
-                    <p>Damage: 999</p>
-                    <p>Protection: 999</p>
-                    <p>Weight: 999</p>
+                  <p>Damage: <?php echo $accessory->damage; ?></p>
+                  <p>Protection: <?php echo $accessory->protection; ?></p>
+                  <p>Weight: <?php echo $accessory->weight; ?></p>
                 </div>
             </div>
-
-            <img id="groza" class="draggable drag-drop weapon" src="assets/img/groza.png" />
-            <img id="m16" class="draggable drag-drop weapon" src="assets/img/M16.png" />
-
-            <h2>Head</h2>
-            <img id="ballistic-mask" class="draggable drag-drop head" src="assets/img/ballistic-mask.png" />
-            <img id="level3-helmet" class="draggable drag-drop head" src="assets/img/level3-helmet.png" />
-            <img id="level2-helmet" class="draggable drag-drop head" src="assets/img/level2-helmet.png" />
-
-            <h2>Accessory</h2>
-            <img id="smoke-grenade" class="draggable drag-drop accessory" src="assets/img/smoke-grenade.png" />
-            <img id="frag-grenade" class="draggable drag-drop accessory" src="assets/img/frag-grenade.png" />
-            <img id="redbull" class="draggable drag-drop accessory" src="assets/img/redbull.png" />
-
-            <h2>Chest</h2>
-            <img id="level1-vest" class="draggable drag-drop chest" src="assets/img/level1-vest.png" />
-            <img id="level2-vest" class="draggable drag-drop chest" src="assets/img/level2-vest.png" />
-            <img id="level3-vest" class="draggable drag-drop chest" src="assets/img/level3-vest.png" />
+          <?php endforeach; ?>
 
         </div>
 
@@ -43,21 +29,11 @@
 
         <!-- These are the slots for the items -->
         <div class="slots">
-            <div id="head" class="dropzone head">
-                Head
+          <?php foreach ($categories as $category): ?>
+            <div id="<?php echo strtolower($category->name); ?>" class="dropzone <?php echo strtolower($category->name); ?>">
+              <?php echo $category->name ?>
             </div>
-
-            <div id="weapon" class="dropzone weapon">
-                Weapon
-            </div>
-
-            <div id="accessory" class="dropzone accessory">
-                Accessory
-            </div>
-
-            <div id="chest" class="dropzone chest">
-                Chest
-            </div>
+          <?php endforeach; ?>
         </div>
 
         <div class="stats">
