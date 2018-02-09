@@ -1,3 +1,6 @@
 id,name,description
 0,head,The head
 1,body,The body
+2,chest,The chest
+3,accessory,The accessory
+4,weapon,The weapon
