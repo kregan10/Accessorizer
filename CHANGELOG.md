@@ -114,3 +114,4 @@ Features:
 
     Fixes:
         - Changed config.php session path back to the original
+        - Removed info controller return values
