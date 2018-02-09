@@ -9,7 +9,16 @@
         <div id="all-items" class="items">
 
             <h2>Weapon</h2>
-            <img id="frying-pan" class="draggable drag-drop weapon" src="assets/img/frying-pan.png" />
+            <!-- FOR JASON -->
+            <div id="frying-pan" class="couponcode">
+                <img class="draggable drag-drop weapon" src="assets/img/frying-pan.png"/>
+                <div class="coupontooltip">
+                    <p>Damage: 999</p>
+                    <p>Protection: 999</p>
+                    <p>Weight: 999</p>
+                </div>
+            </div>
+
             <img id="groza" class="draggable drag-drop weapon" src="assets/img/groza.png" />
             <img id="m16" class="draggable drag-drop weapon" src="assets/img/M16.png" />
 
@@ -51,7 +60,13 @@
             </div>
         </div>
 
-
+        <form action="" method="POST">
+            <input type="text" name="head" value="" hidden>
+            <input type="text" name="chest" value="" hidden>
+            <input type="text" name="weapon" value="" hidden>
+            <input type="text" name="accessory" value="" hidden>
+            <input type="submit" name="submit" value="submit">
+        </form>
 
         <div class="stats">
           <h3>Weight</h3>
