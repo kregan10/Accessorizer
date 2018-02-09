@@ -53,3 +53,10 @@ Features:
         - Added accessories model
         - Added accessories autoload
         - Added accessories CSV
+
+## 1.0.7 (2018-02-18)
+
+    Features:
+
+        - Implemented the menubar partial.
+        - Added loading of links from config.
