@@ -14,7 +14,7 @@ class Accessories extends CSV_Model
     // Accessories protection
     public $protection;
     // Categories id (foriegn key)
-    public $categoriesId
+    public $categoriesId;
 
     /**
      * Contructor for Accessories
