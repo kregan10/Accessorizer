@@ -1,4 +1,5 @@
 <?php
+
 class Categories extends CSV_Model
 {
     // categories Id

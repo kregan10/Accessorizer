@@ -1,4 +1,5 @@
 <?php
+
 class Accessories extends CSV_Model
 {
     // Accessories Id
