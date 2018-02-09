@@ -109,3 +109,8 @@ Features:
         - Removed Accessorizer controller and view
         - Removed static elements in catalog view
         - Changed Categories and Accessories CSV records
+
+## 1.1.1 (2018-02-19)
+
+    Fixes:
+        - Changed config.php session path back to the original
