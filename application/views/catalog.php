@@ -16,9 +16,12 @@
             <div id="<?php echo $accessory->name; ?>" class="couponcode">
               <img class="draggable drag-drop <?php echo strtolower($categories[$accessory->categoriesId]->name); ?>" src="<?php echo $accessory->image; ?>"/>
                 <div class="coupontooltip">
-                  <p>Damage: <?php echo $accessory->damage; ?></p>
-                  <p>Protection: <?php echo $accessory->protection; ?></p>
-                  <p>Weight: <?php echo $accessory->weight; ?></p>
+                  <div class="coupontooltip-text">
+                    <h4><?php echo $accessory->displayName; ?></h4>
+                    <p>Weight: <?php echo $accessory->weight; ?></p>
+                    <p>Damage: <?php echo $accessory->damage; ?></p>
+                    <p>Protection: <?php echo $accessory->protection; ?></p>
+                  </div>
                 </div>
             </div>
           <?php endforeach; ?>
