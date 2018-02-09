@@ -78,5 +78,13 @@ Features:
 
     Fixes:
 
-        - Removed unnecessary assets 
+        - Removed unnecessary assets
         - Updated CSV file
+
+## 1.0.11 (2018-02-19)
+
+    Features:
+
+        - Added sets model
+        - Added sets autoload
+        - Added sets CSV
