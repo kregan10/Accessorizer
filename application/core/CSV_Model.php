@@ -2,7 +2,7 @@
 
 /**
  * CSV-persisted collection.
- * 
+ *
  * @author		JLP
  * @copyright           Copyright (c) 2010-2017, James L. Parry
  * ------------------------------------------------------------------------
