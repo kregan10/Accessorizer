@@ -6,8 +6,7 @@ $config['menu_choices'] = array(
     'menubrand' => 'Accessorizer',
     'menudata' => array(
         array('name' => 'Home', 'link' => '/'),
-        array('name' => 'Catalog', 'link' => '/catalog'),
-        array('name' => 'Accessorizer', 'link' => '/accessorizer')
+        array('name' => 'Catalog', 'link' => '/catalog')
     )
 );
 

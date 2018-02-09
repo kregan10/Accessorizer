@@ -1,6 +1,6 @@
 <?php
 
-class Accessorizer extends Application
+class Catalog extends Application
 {
 
 	/**
@@ -8,7 +8,7 @@ class Accessorizer extends Application
 	 */
 	public function index()
 	{
-		$this->data['pagebody'] = 'accessorizer';
+		$this->data['pagebody'] = 'catalog';
 		$this->data['pagetitle'] = 'Accessorize Soldier!';
 		$this->render();
 	}
