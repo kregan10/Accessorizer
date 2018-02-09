@@ -40,3 +40,10 @@ Features:
         - Bug fixed MY_Model to load correctly
         - Added dummy data to CSV
         - Fixed autoload for categories
+
+## 1.0.5 (2018-02-18)
+
+    Features:
+
+        - Implemented the _menubar partial.
+        - Added loading of links from config properly.
