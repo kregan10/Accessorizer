@@ -45,5 +45,18 @@ Features:
 
     Features:
 
-        - Implemented the _menubar partial.
-        - Added loading of links from config properly.
+        - Added tooltips when hovering over items. These tooltips describe the item and show it's stats.
+
+## 1.0.6 (2018-02-18)
+
+    Features:
+        - Added accessories model
+        - Added accessories autoload
+        - Added accessories CSV
+
+## 1.0.7 (2018-02-18)
+
+    Features:
+
+        - Implemented the menubar partial.
+        - Added loading of links from config.

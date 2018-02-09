@@ -1,3 +1,20 @@
+/* Tooltip on Hover
+------------------------------------------------------------------------*/
+
+var tooltip = document.querySelectorAll('.coupontooltip');
+
+document.addEventListener('mousemove', fn, false);
+
+function fn(e) {
+    for (var i=tooltip.length; i--;) {
+        tooltip[i].style.left = e.pageX + 'px';
+        tooltip[i].style.top = e.pageY + 'px';
+    }
+}
+
+/* Drag-and-Drop Stuff
+------------------------------------------------------------------------*/
+
 var element = document.getElementsByClassName('dropzone'),
     x = 0,
     y = 0;
@@ -128,10 +145,6 @@ interact('.dropzone').dropzone({
             element.removeAttribute("data-y");
 
         }
-
-
-
-
     },
     ondropdeactivate: function(event) {
         // remove active dropzone feedback
