@@ -67,9 +67,25 @@ Features:
 
         - Reference to drag-and-drop library removed from template. Had to put it back in.
         - Syntax error in accessories model
-        
-## 1.0.8 (2018-02-18)
+
+## 1.0.9 (2018-02-18)
 
     Fixes:
 
-        - Improper naming of files in controllers, views, and menubar. 
+        - Improper naming of files in controllers, views, and menubar.
+
+## 1.0.10 (2018-02-18)
+
+    Fixes:
+
+        - Removed unnecessary assets
+        - Updated CSV file
+
+## 1.0.11 (2018-02-18)
+
+    Features:
+
+        - Added body functionality for the info controller.
+        - Added sets model
+        - Added sets autoload
+        - Added sets CSV
