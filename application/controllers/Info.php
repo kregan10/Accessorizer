@@ -18,10 +18,10 @@ class Info extends Application
 
 		// Set correct json/output request details.
 		$this->output->set_content_type('application/json');
-		$this->output->set_output($data);
+		$this->output->set_output($scenario);
 
 		// Return the data as json.
-		return $this;
+		return $data;
 	}
 
 	/**
@@ -33,12 +33,21 @@ class Info extends Application
 	 */
 	public function category($key = null)
 	{
-		// Check if key passed
-		if ($key === null) {
-			echo json_encode($this->categories->all());
-		} else {
-			echo json_encode($this->categories->get($key));
+		// Encode data as json.
+		$data = json_encode($this->categories->get($key));
+
+		// Check if specific category exists.
+		if (is_null($key))
+		{
+			$data = json_encode($this->categories->all());
 		}
+
+		// Set correct json/output request details.
+		$this->output->set_content_type('application/json');
+		$this->output->set_output($data);
+
+		// Return the data as json.
+		return $this;
 	}
 
 	/**
