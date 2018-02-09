@@ -67,3 +67,9 @@ Features:
 
         - Reference to drag-and-drop library removed from template. Had to put it back in.
         - Syntax error in accessories model
+        
+## 1.0.8 (2018-02-18)
+
+    Fixes:
+
+        - Improper naming of files in controllers, views, and menubar. 

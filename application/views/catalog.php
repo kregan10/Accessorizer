@@ -60,14 +60,6 @@
             </div>
         </div>
 
-        <form action="" method="POST">
-            <input type="text" name="head" value="" hidden>
-            <input type="text" name="chest" value="" hidden>
-            <input type="text" name="weapon" value="" hidden>
-            <input type="text" name="accessory" value="" hidden>
-            <input type="submit" name="submit" value="submit">
-        </form>
-
         <div class="stats">
           <h3>Weight</h3>
           <div class="progress">
@@ -93,7 +85,7 @@
               <input type="text" name="chest" value="" hidden>
               <input type="text" name="weapon" value="" hidden>
               <input type="text" name="accessory" value="" hidden>
-              <input class="btn-succes" type="submit" name="submit" value="submit">
+              <input class="btn btn-success" type="submit" name="submit" value="Submit">
           </form>
 
         </div>
