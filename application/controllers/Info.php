@@ -6,61 +6,99 @@ class Info extends Application
 {
 
 	/**
-	 * Index Page for this controller.
-	 *
-	 * Maps to the following URL
-	 * 		http://example.com/
-	 * 	- or -
-	 * 		http://example.com/welcome/index
-	 *
-	 * So any other public methods not prefixed with an underscore will
-	 * map to /welcome/<method_name>
-	 * @see https://codeigniter.com/user_guide/general/urls.html
+	 * Returns a description of your scenario
+	 * Example: {"scenario":"Duckey player"}
+	 * 
+	 * @return Specific scenario - 
 	 */
 	public function index()
 	{
-		echo json_encode(array("scenario" => "PUBG Kit Selecter"));
+		// Encode data as json.
+		$data = json_encode(array("scenario" => "PUBG Kit Selecter"));
+
+		// Set correct json/output request details.
+		$this->output->set_content_type('application/json');
+		$this->output->set_output($data);
+
+		// Return the data as json.
+		return $data;
 	}
 
 	/**
+	 * Returns the designated category, or all of
+	 * them if none is specifically requested.
+	 * 
 	 * @param  PK of category
 	 * @return Specific category || all categories
 	 */
 	public function category($key = null)
 	{
-		// Check if key passed
-		if ($key === null) {
-			echo json_encode($this->categories->all());
-		} else {
-			echo json_encode($this->categories->get($key));
+		// Encode data as json.
+		$data = json_encode($this->categories->get($key));
+
+		// Check if specific category exists.
+		if (is_null($key))
+		{
+			$data = json_encode($this->categories->all());
 		}
+
+		// Set correct json/output request details.
+		$this->output->set_content_type('application/json');
+		$this->output->set_output($data);
+
+		// Return the data as json.
+		return $this;
 	}
 
 	/**
+	 * Returns the designated accessory, or all of
+	 * them if none is specifically requested.
+	 * 
 	 * @param  PK of accessory
 	 * @return Specific accessory || all accessories
 	 */
 	public function catalog($key = null)
 	{
-		// Check if key passed
-		if ($key === null) {
+		// Encode data as json.
+		$data = json_encode($this->accessories->get($key));
 
-		} else {
-
+		// Check if specific category exists.
+		if (is_null($key))
+		{
+			$data = json_encode($this->accessories->all());
 		}
+
+		// Set correct json/output request details.
+		$this->output->set_content_type('application/json');
+		$this->output->set_output($data);
+
+		// Return the data as json.
+		return $this;
 	}
 
 	/**
+	 * Returns the designated category, or all of
+	 * them if none is specifically requested.
+	 * 
 	 * @param  PK of set
 	 * @return Specific set || all Sets
 	 */
 	public function bundle($key = null)
 	{
-		// Check if key passed
-		if ($key === null) {
+		// Encode data as json.
+		$data = json_encode($this->categories->get($key));
 
-		} else {
-
+		// Check if specific category exists.
+		if (is_null($key))
+		{
+			$data = json_encode($this->categories->all());
 		}
+
+		// Set correct json/output request details.
+		$this->output->set_content_type('application/json');
+		$this->output->set_output($data);
+
+		// Return the data as json.
+		return $this;
 	}
 }
