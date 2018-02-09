@@ -18,7 +18,7 @@ class Info extends Application
 
 		// Set correct json/output request details.
 		$this->output->set_content_type('application/json');
-		$this->output->set_output($scenario);
+		$this->output->set_output($data);
 
 		// Return the data as json.
 		return $data;
