@@ -116,12 +116,12 @@ Features:
         - Changed config.php session path back to the original
         - Removed info controller return values
 
-## 1.1.1 (2018-02-19)
+## 1.1.2 (2018-02-19)
 
     Fixes:
         - Added some styling for tooltips
 
-## 1.1.2 (2018-02-19)
+## 1.1.3 (2018-02-19)
 
     Features:
         - character object in the js
@@ -131,7 +131,7 @@ Features:
     Fixes:
         - Refactored everything; general cleanup
 
-## 1.1.3 (2018-02-19)
+## 1.1.4 (2018-02-19)
 
     Features:
         - stats bars now coordinate with updating of character's stats
@@ -139,17 +139,17 @@ Features:
     Fixes:
         - Some merge conflicts (left over git tags)
 
-## 1.1.4 (2018-02-10)
+## 1.1.5 (2018-02-10)
 
     Features:
         - Added data.js to allow the retrieve information in real time.
         
-## 1.1.5 (2018-02-10)
+## 1.1.6 (2018-02-10)
 
     Features:
         - Added reset button to catalog view for reseting the GUI and character stats for the build.
 
-# 1.1.6 (2018-02-10)
+# 1.1.7 (2018-02-10)
 
     Fixes:
         - Rename accessories and categories table name
@@ -158,7 +158,7 @@ Features:
         - Removing PHP code in catalog view
         - Fixed Catalog controller
 
-# 1.1.7 (2018-02-11)
+# 1.1.8 (2018-02-11)
 
 Fixes:
     - Registered footer in config
@@ -167,12 +167,18 @@ Fixes:
     - Added styling for more consistent look
     - Updated base application title in MY_Controller
     
-# 1.1.7 (2018-02-11)
+# 1.1.9 (2018-02-11)
 
     Features:
         - Added slots to the homepage
 
-# 1.1.8 (2018-02-11)
+# 1.2.0 (2018-02-11)
 
     Features:
         - Loaded item sets dynamically
+
+# 1.2.1 (2018-02-11)
+
+    Features:
+        - Added data.js to load data using ajax.
+        - Added preset loading on the homepage.
