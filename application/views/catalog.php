@@ -17,10 +17,29 @@
                 <img class="draggable drag-drop <?php echo strtolower($categories[$accessory->categoriesId]->name); ?>" src="<?php echo $accessory->image; ?>"/>
                 <div class="coupontooltip">
                   <div class="coupontooltip-text">
-                    <h4><?php echo $accessory->displayName; ?></h4>
-                    <p>Weight: <span id="weight"><?php echo $accessory->weight; ?></span></p>
-                    <p>Damage: <span id="damage"><?php echo $accessory->damage; ?></span></p>
-                    <p>Protection: <span id="protection"><?php echo $accessory->protection; ?></span></p>
+                      <h4><?php echo $accessory->displayName; ?></h4>
+                      <table class="table table-striped">
+                        <thead>
+                          <tr>
+                            <th scope="col">Attribute</th>
+                            <th scope="col">Level</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>Weight</td>
+                            <td id="weight"><?php echo $accessory->weight; ?></td>
+                          </tr>
+                          <tr>
+                            <td>Damage</td>
+                            <td id="damage"><?php echo $accessory->damage; ?></td>
+                          </tr>
+                          <tr>
+                            <td>Protection</td>
+                            <td id="protection"><?php echo $accessory->protection; ?></td>
+                          </tr>
+                        </tbody>
+                    </table>
                   </div>
                 </div>
             </div>
