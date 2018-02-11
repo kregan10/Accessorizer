@@ -30,7 +30,7 @@
             <div class="dropdown">
                 <button class="btn btn-danger dropdown-toggle" type="button" data-toggle="dropdown">Presets
                 <span class="caret"></span></button>
-                <ul class="dropdown-menu">
+                <ul id="homepage-presets" class="dropdown-menu">
                   <li class="dropdown-item"><a href="#">Fighter</a></li>
                   <li class="dropdown-item"><a href="#">Tank</a></li>
                   <li class="dropdown-item"><a href="#">Ninja</a></li>

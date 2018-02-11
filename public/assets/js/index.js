@@ -169,10 +169,6 @@ function updateStatsBars() {
     protectionBar.style.width = "" + character.stats.protection  + "%";
     weightBar.style.width = "" + character.stats.weight + "%";
 
-    // console.log(damageBar);
-    // console.log(protectionBar);
-    // console.log(weightBar);
-
 }
 
 /* Interact.js Implementation and Listeners

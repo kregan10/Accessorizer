@@ -138,3 +138,8 @@ Features:
 
     Fixes:
         - Some merge conflicts (left over git tags)
+
+## 1.1.4 (2018-02-10)
+
+    Features:
+        - Added data.js to allow the retrieve information in real time.
