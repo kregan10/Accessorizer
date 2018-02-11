@@ -11,6 +11,14 @@
     font-size: 30px;
 }
 
+.about-text {
+  font-family: 'Violence';
+  font-size: 25px;
+  color: white;
+  text-shadow: 2px 2px black;
+
+}
+
 body {
     height: 100%;
     background-image: url(../img/bg-bf.jpg);
