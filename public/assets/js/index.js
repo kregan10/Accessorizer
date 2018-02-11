@@ -63,11 +63,6 @@ $(function() {
         });
     }
 
-    function displayPreset()
-    {
-
-    }
-
 });
 
 
