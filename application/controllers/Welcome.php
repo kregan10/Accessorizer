@@ -15,6 +15,8 @@ class Welcome extends Application
 	public function index()
 	{
 		// this is the view we want shown
+        $categories = $this->categories->all();
+        $this->data['categories'] = $categories;
 		$this->data['pagebody'] = 'homepage';
 		$this->data['pagetitle'] = 'Choose your preset';
 		$this->render();

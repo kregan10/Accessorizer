@@ -30,13 +30,18 @@
             <div class="dropdown">
                 <button class="btn btn-danger dropdown-toggle" type="button" data-toggle="dropdown">Presets
                 <span class="caret"></span></button>
-                <ul id="homepage-presets" class="dropdown-menu">
-                  <li class="dropdown-item"><a href="#">Fighter</a></li>
-                  <li class="dropdown-item"><a href="#">Tank</a></li>
-                  <li class="dropdown-item"><a href="#">Ninja</a></li>
-                </ul>
+                <ul id="homepage-presets" class="dropdown-menu"></ul>
             </div>
 
+        </div>
+
+        <!-- These are the slots for the items -->
+        <div class="slots">
+          <?php foreach ($categories as $category): ?>
+            <div id="<?php echo strtolower($category->name); ?>" class="dropzone <?php echo strtolower($category->name); ?>">
+              <?php echo $category->name ?>
+            </div>
+          <?php endforeach; ?>
         </div>
 
     </div>

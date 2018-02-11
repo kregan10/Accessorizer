@@ -1,6 +1,6 @@
 /**
  * Loads data necessary for the views.
- * 
+ *
  * TODO: Add secondary parameters for parsing
  * single item/result requests.
  */
