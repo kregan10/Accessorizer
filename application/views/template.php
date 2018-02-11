@@ -30,6 +30,5 @@
     <script type="text/javascript" src="assets/js/data.js"></script>
     <script type="text/javascript" src="assets/js/interact.js"></script>
     <script type="text/javascript" src="assets/js/index.js"></script>
-    <script type="text/javascript" src="assets/js/app.js"></script>
     </body>
 </html>

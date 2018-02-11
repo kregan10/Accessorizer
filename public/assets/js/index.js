@@ -3,9 +3,37 @@
 
 $(function() {
 
-    // Event Listener
-    // Handler
-    // Update stats
+    /**
+     * Event listener for homepage presets.
+     */
+    $("#homepage-presets").on('click', 'li', loadPreset);
+
+    /**
+     * Loads the pre-set options onto the character.
+     */
+    function loadPreset()
+    {
+        // Get the set id.
+        var setID = $(this).attr("data-setid");
+
+        // Query the specific set.
+        data.getSets(setID, function(set) {
+            
+            // Load in the accessories.
+            data.getCatalog(null, function(catalog) {
+                console.log(catalog[set["accessory"]]);
+                console.log(catalog[set["head"]]);
+                console.log(catalog[set["chest"]]);
+                console.log(catalog[set["weapon"]]);
+            });
+
+        });
+    }
+
+    function displayPreset()
+    {
+
+    }
 
 });
 

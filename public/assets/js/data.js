@@ -12,26 +12,38 @@ var data = {
 		sets: "info/bundle/"
 	},
 
-	getScenario: function (callback) {
-		$.getJSON(this.api.scenario, function(json) {
+	getScenario: function (id, callback) {
+		if (id === null) {
+			id = '';
+		}
+		$.getJSON(this.api.scenario + id, function(json) {
 			if (callback) callback(json);
 		});
 	},
 
-	getCategory: function (callback) {
-		$.getJSON(this.api.category, function (json) {
+	getCategory: function (id, callback) {
+		if (id === null) {
+			id = '';
+		}
+		$.getJSON(this.api.category + id, function (json) {
 			if (callback) callback(json);
 		});
 	},
 
-	getCatalog: function (callback) {
-		$.getJSON(this.api.catalog, function (json) {
+	getCatalog: function (id, callback) {
+		if (id === null) {
+			id = '';
+		}
+		$.getJSON(this.api.catalog + id, function (json) {
 			if (callback) callback(json);
 		});
 	},
 
-	getSets: function (callback) {
-		$.getJSON(this.api.sets, function (json) {
+	getSets: function (id, callback) {
+		if (id === null) {
+			id = '';
+		}
+		$.getJSON(this.api.sets + id, function (json) {
 			if (callback) callback(json);
 		});
 	}
