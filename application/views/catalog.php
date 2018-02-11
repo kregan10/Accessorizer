@@ -59,14 +59,13 @@
             </div>
           </div>
 
-          <form class="row" action="" method="POST">
-              <input type="text" name="head" value="" hidden>
-              <input type="text" name="chest" value="" hidden>
-              <input type="text" name="weapon" value="" hidden>
-              <input type="text" name="accessory" value="" hidden>
-              <input id="set-name" class="form-control" type="text" name="set" placeholder="Enter Set Name">
+          <div class="row">
+              <input id="set-name" class="form-control" type="text" name="set" placeholder="Set Name">
               <input id="set-save" class="btn btn-success mx-auto" type="submit" name="submit" value="Save">
-          </form>
+          </div>
+          <div class="row">
+              <input id="set-reset" class="btn btn-danger mx-auto" type="reset" name="reset" value="Reset">
+          </div>
 
         </div>
 
