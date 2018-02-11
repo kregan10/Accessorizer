@@ -175,4 +175,9 @@ Features:
 # 1.1.8 (2018-02-11)
 
     Features:
+        - Loaded item sets dynamically
+
+# 1.1.9 (2018-02-11)
+
+    Features:
         - Added visual effects to the background.
