@@ -1,13 +1,13 @@
-id,name,image,weight,damage,protection,categoriesId
-0,frying-pan,assets/img/frying-pan.png,10,10,10,0
-1,groza,assets/img/groza.png,20,30,0,0
-2,m16,assets/img/M16.png,40,40,0,0
-3,ballistic-mask,assets/img/ballistic-mask.png,15,0,20,1
-4,level3-helmet,assets/img/level3-helmet.png,25,0,30,1
-5,level2-helmet,assets/img/level2-helmet.png,10,0,18,1
-6,smoke-grenade,assets/img/smoke-grenade.png,10,0,0,2
-7,frag-grenae,assets/img/frag-grenade.png,15,40,0,2
-8,redbull,assets/img/redbull.png,5,0,0,2
-9,level1-vest,assets/img/level1-vest.png,30,0,40,3
-10,level2-vest,assets/img/level2-vest.png,35,0,50,3
-11,level3-vest,assets/img/level3-vest.png,40,0,60,3
+id,name,image,weight,damage,protection,displayName,categoriesId
+0,frying-pan,assets/img/frying-pan.png,10,10,10,Frying Pan,0
+1,groza,assets/img/groza.png,20,30,0,Groza,0
+2,m16,assets/img/M16.png,40,40,0,M16,0
+3,ballistic-mask,assets/img/ballistic-mask.png,15,0,20,Ballistic Mask,1
+4,level3-helmet,assets/img/level3-helmet.png,25,0,30,Heavy Helmet,1
+5,level2-helmet,assets/img/level2-helmet.png,10,0,18,Light Helmet,1
+6,smoke-grenade,assets/img/smoke-grenade.png,10,0,0,Smoke Grenade,2
+7,frag-grenae,assets/img/frag-grenade.png,15,40,0,Frag Grenade,2
+8,redbull,assets/img/redbull.png,5,0,0,Red Bull,2
+9,level1-vest,assets/img/level1-vest.png,30,0,40,Light Vest,3
+10,level2-vest,assets/img/level2-vest.png,35,0,50,Medium Vest,3
+11,level3-vest,assets/img/level3-vest.png,40,0,60,Heavy Vest,3
