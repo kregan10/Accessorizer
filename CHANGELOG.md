@@ -143,3 +143,8 @@ Features:
 
     Features:
         - Added data.js to allow the retrieve information in real time.
+        
+## 1.1.4 (2018-02-10)
+
+    Features:
+        - Added reset button to catalog view for reseting the GUI and character stats for the build.
