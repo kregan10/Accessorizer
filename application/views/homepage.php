@@ -4,10 +4,7 @@
          <div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown">Choose your preset
             <span class="caret"></span></button>
-            <ul class="dropdown-menu">
-               <li class="dropdown-item"><a href="#">Fighter</a></li>
-               <li class="dropdown-item"><a href="#">Tank</a></li>
-               <li class="dropdown-item"><a href="#">Ninja</a></li>
+            <ul class="dropdown-menu" id="homepage-presets">
             </ul>
             <h3>Weight</h3>
             <div class="progress">

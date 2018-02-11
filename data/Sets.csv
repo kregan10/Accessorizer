@@ -1,3 +1,4 @@
 id,name,weapon,head,chest,accessory
-0,tank,2,4,11,7
-1,ninja,0,3,9,6
+0,Tank,2,4,11,7
+1,Ninja,0,3,9,6
+2,Naked Ninja,0,5,11,8

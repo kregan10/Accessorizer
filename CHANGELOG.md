@@ -143,3 +143,7 @@ Features:
 
     Features:
         - Added data.js to allow the retrieve information in real time.
+        - Added set names to be loaded dynamically on the homepage.
+    
+    Fixes:
+        - Info controller bundle function was returning wrong data, fixed this.
