@@ -3,15 +3,9 @@
 
 $(function() {
 
-    /**
-     * Sets the data for the homepage.
-     */
-    data.getSets(function(sets) {
-        sets.forEach(function(set) {
-            // Add set name to the homepage.
-            $("#homepage-presets").append('<li class="dropdown-item"><a id="' + set.name + '" href="#">' + set.name + '</a></li>');
-        });
-    });
+    // Event Listener
+    // Handler
+    // Update stats
 
 });
 
