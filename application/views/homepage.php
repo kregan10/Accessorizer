@@ -30,7 +30,11 @@
             <div class="dropdown">
                 <button class="btn btn-danger dropdown-toggle" type="button" data-toggle="dropdown">Presets
                 <span class="caret"></span></button>
-                <ul id="homepage-presets" class="dropdown-menu"></ul>
+                <ul id="homepage-presets" class="dropdown-menu">
+                  {sets}
+                    <li class="dropdown-item" style="text-transform: capitalize"><a href="#">{name}</a></li>
+                  {/sets}
+                </ul>
             </div>
 
         </div>
