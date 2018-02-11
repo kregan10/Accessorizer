@@ -157,3 +157,12 @@ Features:
         - Fixed Memory_model class some()
         - Removing PHP code in catalog view
         - Fixed Catalog controller
+
+# 1.1.6 (2018-02-11)
+
+Fixes:
+    - Registered footer in config
+    - Registered footer in template
+    - Added footer.php with basic markup
+    - Added styling for more consistent look
+    - Updated base application title in MY_Controller
