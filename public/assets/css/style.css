@@ -28,7 +28,7 @@ h1, h2, h3, h4 {
 
 footer {
     z-index: 99999;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.2);
     position: absolute;
     bottom: 0;
     padding: 10px 0 5px 0;
