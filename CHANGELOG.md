@@ -143,7 +143,26 @@ Features:
 
     Features:
         - Added data.js to allow the retrieve information in real time.
-        - Added set names to be loaded dynamically on the homepage.
-    
+        
+## 1.1.5 (2018-02-10)
+
+    Features:
+        - Added reset button to catalog view for reseting the GUI and character stats for the build.
+
+# 1.1.6 (2018-02-10)
+
     Fixes:
-        - Info controller bundle function was returning wrong data, fixed this.
+        - Rename accessories and categories table name
+        - Added addition fields for model class
+        - Fixed Memory_model class some()
+        - Removing PHP code in catalog view
+        - Fixed Catalog controller
+
+# 1.1.7 (2018-02-11)
+
+    Fixes:
+        - Registered footer in config
+        - Registered footer in template
+        - Added footer.php with basic markup
+        - Added styling for more consistent look
+        - Updated base application title in MY_Controller

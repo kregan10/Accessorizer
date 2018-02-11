@@ -20,10 +20,19 @@ body {
     background-attachment: fixed;
 }
 
-h1, h2, h3 {
+h1, h2, h3, h4 {
     font-family: 'Violence';
     text-shadow: 2px 2px #444444;
     color: #FFF;
+}
+
+footer {
+    z-index: 99999;
+    background-color: rgba(0, 0, 0, 0.2);
+    position: absolute;
+    bottom: 0;
+    padding: 10px 0 5px 0;
+    width: 100%;
 }
 
 nav {
@@ -199,7 +208,7 @@ nav {
 .stats {
     width: 30%;
     margin-top: 120px;
-    background-color: rgba(0, 0, 0, 0.3);
+
     padding: 20px 30px 20px 30px;
     max-height: 300px;
     border-radius: 10px;
@@ -212,15 +221,22 @@ nav {
 
 .coupontooltip {
     display: none;
-    background: #C8C8C8;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #FFF;
     position: fixed;
     z-index: 1000;
     margin-left: 20px;
     width: 200px;
-    height: 150px;
-    border: 2px solid green;
+    height: 250px;
+    border: 2px solid #FFF;
     padding: 10px;
-    border-radius: 25px;
+    border-radius: 10px;
+}
+
+.coupontooltip h4 {
+    font-size: 32px;
+    font-family: 'Violence';
+    text-align: center;
 }
 
 .coupontooltip-text {

@@ -52,6 +52,18 @@ let character = {
     }
 }
 
+let resetButton = $('#set-reset').click(function() {
+    let all = $('.can-drop').toArray();
+    characterReset();
+    for (var i = 0; i < all.length; i++) {
+        itemReset(all[i]);
+    }
+    updateStatsBars();
+});
+
+
+
+
 /* Drag-and-Drop Functions
 ------------------------------------------------------------------------------*/
 
@@ -109,8 +121,6 @@ function addItem(item, itemType) {
     character.stats.protection += parseInt(protection) || 0;
     character.stats.weight += parseInt(weight) || 0;
 
-    console.log(character);
-
     // Fill character's slot for that item type
     character.slots[itemType].isEquipped = true;
     character.slots[itemType].item = item;
@@ -159,8 +169,6 @@ function updateStatsBars() {
     let protectionBar = $('.stats .progress #protection-bar').get(0);
     let weightBar = $('.stats .progress #weight-bar').get(0);
 
-    console.log(parseInt(character.stats.damage))
-
     damageBar.setAttribute('aria-valuenow', parseInt(character.stats.damage));
     protectionBar.setAttribute('aria-valuenow', character.stats.protection);
     weightBar.setAttribute('aria-valuenow', character.stats.weight);
@@ -168,6 +176,27 @@ function updateStatsBars() {
     damageBar.style.width = "" + character.stats.damage + "%";
     protectionBar.style.width = "" + character.stats.protection  + "%";
     weightBar.style.width = "" + character.stats.weight + "%";
+
+}
+
+/**
+ * Resets the character's stats and booleans.
+ */
+function characterReset() {
+
+    let slots = character['slots'];
+    let stats = character['stats'];
+
+    for (var key in slots) {
+        slots[key].isEquipped = false;
+        slots[key].item = null;
+    }
+
+    for (var key in stats) {
+        stats[key] = 0;
+    }
+
+    console.log(character);
 
 }
 
@@ -276,6 +305,8 @@ interact('.dropzone').dropzone({
         // green background - if not, apply red.
         if (isValidItem(draggableElement, dropzoneElement)
             && !character.slots[itemType].isEquipped) {
+
+                console.log(draggableElement);
 
           draggableElement.classList.add('can-drop');
 
