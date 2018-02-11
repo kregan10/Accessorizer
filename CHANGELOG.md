@@ -166,3 +166,8 @@ Fixes:
     - Added footer.php with basic markup
     - Added styling for more consistent look
     - Updated base application title in MY_Controller
+    
+# 1.1.7 (2018-02-11)
+
+    Features:
+        - Added slots to the homepage
