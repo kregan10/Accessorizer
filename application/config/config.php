@@ -10,6 +10,12 @@ $config['menu_choices'] = array(
     )
 );
 
+// The site wide footer
+$config['footer'] = array(
+	'footerbrand' => 'Accessorizer',
+	'date' => date("Y")
+);
+
 /*
 |--------------------------------------------------------------------------
 | Base Site URL

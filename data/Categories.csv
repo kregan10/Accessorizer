@@ -1,5 +1,5 @@
-id,name,description
-0,Weapon,The weapon
-1,Head,The head
-2,Accessory,The accessory
-3,Chest,The chest
+categoryId,categoryName,description
+0,weapon,The weapon
+1,head,The head
+2,accessory,The accessory
+3,chest,The chest
