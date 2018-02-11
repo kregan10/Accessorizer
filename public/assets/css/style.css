@@ -26,6 +26,13 @@ h1, h2, h3 {
     color: #FFF;
 }
 
+footer {
+    background-color: rgba(0, 0, 0, 0.3);
+    position: absolute;
+    bottom: 0;
+    height: 60px;
+}
+
 nav {
     z-index: 99999;
     background-color: rgba(0, 0, 0, 0.3);

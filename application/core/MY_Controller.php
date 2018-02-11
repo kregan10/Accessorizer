@@ -32,9 +32,9 @@ class Application extends CI_Controller
 	 */
 	function render($template = 'template')
 	{
-		// Uncomment when menubar has been implemented
   		$this->data['menubar'] = $this->parser->parse('_menubar', $this->config->item('menu_choices'), true);
 		$this->data['content'] = $this->parser->parse($this->data['pagebody'], $this->data, true);
+		$this->data['footer'] = $this->parser->parse('_footer', $this->config->item('footer'), true);
 		$this->parser->parse('template', $this->data);
 	}
 
