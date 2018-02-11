@@ -1,14 +1,33 @@
+/* Document On-Load's
+------------------------------------------------------------------------------*/
+
+$(function() {
+
+    /**
+     * Sets the data for the homepage.
+     */
+    data.getSets(function(sets) {
+        sets.forEach(function(set) {
+            // Add set name to the homepage.
+            $("#homepage-presets").append('<li class="dropdown-item"><a id="' + set.name + '" href="#">' + set.name + '</a></li>');
+        });
+    });
+
+});
+
+
 /* Tooltip-on-Hover
 ------------------------------------------------------------------------------*/
 
-var tooltip = document.querySelectorAll('.coupontooltip');
+let tooltip = document.querySelectorAll('.coupontooltip');
 
 document.addEventListener('mousemove', function(e) {
-    for (var i=tooltip.length; i--;) {
+    for (let i = tooltip.length; i--;) {
         tooltip[i].style.left = e.pageX + 'px';
         tooltip[i].style.top = e.pageY + 'px';
     }
 }, false);
+
 
 /* Drag-and-Drop Variables
 -----------------------------------------------------------------------------*/
@@ -60,8 +79,6 @@ let resetButton = $('#set-reset').click(function() {
     }
     updateStatsBars();
 });
-
-
 
 
 /* Drag-and-Drop Functions
@@ -174,7 +191,7 @@ function updateStatsBars() {
     weightBar.setAttribute('aria-valuenow', character.stats.weight);
 
     damageBar.style.width = "" + character.stats.damage + "%";
-    protectionBar.style.width = "" + character.stats.protection  + "%";
+    protectionBar.style.width = "" + character.stats.protection + "%";
     weightBar.style.width = "" + character.stats.weight + "%";
 
 }
@@ -196,9 +213,16 @@ function characterReset() {
         stats[key] = 0;
     }
 
-    console.log(character);
-
 }
+
+/**
+ * Places all the items on screen from a particular set.
+ * @param  {String} set the name of the set
+ */
+function getItems(set) {
+    console.log(set);
+}
+
 
 /* Interact.js Implementation and Listeners
 ------------------------------------------------------------------------------*/
@@ -303,16 +327,16 @@ interact('.dropzone').dropzone({
 
         // Checks if it's a valid item for this slot. If it is, apply
         // green background - if not, apply red.
-        if (isValidItem(draggableElement, dropzoneElement)
-            && !character.slots[itemType].isEquipped) {
+        if (isValidItem(draggableElement, dropzoneElement) &&
+            !character.slots[itemType].isEquipped) {
 
-                console.log(draggableElement);
+            console.log(draggableElement);
 
-          draggableElement.classList.add('can-drop');
+            draggableElement.classList.add('can-drop');
 
         } else {
 
-          draggableElement.classList.add('can-not-drop');
+            draggableElement.classList.add('can-not-drop');
 
         }
 
@@ -332,8 +356,8 @@ interact('.dropzone').dropzone({
         itemType = draggableElement.classList.item(2);
 
         // Remove our character's stats attributed to this item
-        if (character.slots[itemType].isEquipped
-            && draggableElement.classList.contains('can-drop')) {
+        if (character.slots[itemType].isEquipped &&
+            draggableElement.classList.contains('can-drop')) {
             removeItem(item, itemType)
         }
 
@@ -360,8 +384,8 @@ interact('.dropzone').dropzone({
         itemType = draggableElement.classList.item(2);
 
         // Check if this is a valid drop zone for this itemType
-        if (isValidItem(draggableElement, dropzoneElement)
-            && !character.slots[itemType].isEquipped) {
+        if (isValidItem(draggableElement, dropzoneElement) &&
+            !character.slots[itemType].isEquipped) {
 
             // Depending on our item, add stats to character's total.
             addItem(item, itemType);

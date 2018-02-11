@@ -14,7 +14,16 @@ class Welcome extends Application
 	 */
 	public function index()
 	{
-		// this is the view we want shown
+		$categories = $this->categories->all();
+		foreach ($categories as $category) {
+			$accessories = $this->accessories->some('categoryId', $category->categoryId);
+			foreach ($accessories as $accessory) {
+				$accessory->categoryName = $category->categoryName;
+			}
+			$category->accessories = $accessories;
+		}
+		
+        $this->data['categories'] = $categories;
 		$this->data['pagebody'] = 'homepage';
 		$this->data['pagetitle'] = 'Choose your preset';
 		$this->render();
