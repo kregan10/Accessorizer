@@ -77,12 +77,12 @@ class Info extends Application
 	public function bundle($key = null)
 	{
 		// Encode data as json.
-		$data = json_encode($this->categories->get($key));
+		$data = json_encode($this->sets->get($key));
 
 		// Check if specific category exists.
 		if (is_null($key))
 		{
-			$data = json_encode($this->categories->all());
+			$data = json_encode($this->sets->all());
 		}
 
 		// Set correct json/output request details.
