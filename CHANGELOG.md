@@ -192,3 +192,11 @@ Features:
     Features:
         - Added data.js to load data using ajax.
         - Added preset loading on the homepage.
+        
+
+## 1.2.3 (2018-02-11)
+
+    Fixes:
+        - Added a back-drop and container to About page write-up
+        - Darkened font drop-shadow
+        - Removed white border from tooltip
