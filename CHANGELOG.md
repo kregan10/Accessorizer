@@ -143,7 +143,7 @@ Features:
 
     Features:
         - Added data.js to allow the retrieve information in real time.
-        
+
 ## 1.1.4 (2018-02-10)
 
     Features:
@@ -160,9 +160,9 @@ Features:
 
 # 1.1.6 (2018-02-11)
 
-Fixes:
-    - Registered footer in config
-    - Registered footer in template
-    - Added footer.php with basic markup
-    - Added styling for more consistent look
-    - Updated base application title in MY_Controller
+    Fixes:
+        - Registered footer in config
+        - Registered footer in template
+        - Added footer.php with basic markup
+        - Added styling for more consistent look
+        - Updated base application title in MY_Controller
