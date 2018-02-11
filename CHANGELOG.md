@@ -181,3 +181,8 @@ Features:
 
     Features:
         - Added visual effects to the background.
+
+# 1.2.0 (2018-02-11)
+
+    Features:
+        - Added About page.
