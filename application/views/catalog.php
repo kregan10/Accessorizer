@@ -16,18 +16,12 @@
             <div id="<?php echo $accessory->name; ?>" class="couponcode">
                 <img class="draggable drag-drop <?php echo strtolower($categories[$accessory->categoriesId]->name); ?>" src="<?php echo $accessory->image; ?>"/>
                 <div class="coupontooltip">
-<<<<<<< HEAD
-                  <p>Damage: <span id="damage"><?php echo $accessory->damage; ?></span></p>
-                  <p>Protection: <span id="protection"><?php echo $accessory->protection; ?></span></p>
-                  <p>Weight: <span id="weight"><?php echo $accessory->weight; ?></span></p>
-=======
                   <div class="coupontooltip-text">
                     <h4><?php echo $accessory->displayName; ?></h4>
-                    <p>Weight: <?php echo $accessory->weight; ?></p>
-                    <p>Damage: <?php echo $accessory->damage; ?></p>
-                    <p>Protection: <?php echo $accessory->protection; ?></p>
+                    <p>Weight: <span id="weight"><?php echo $accessory->weight; ?></span></p>
+                    <p>Damage: <span id="damage"><?php echo $accessory->damage; ?></span></p>
+                    <p>Protection: <span id="protection"><?php echo $accessory->protection; ?></span></p>
                   </div>
->>>>>>> origin
                 </div>
             </div>
           <?php endforeach; ?>
@@ -48,20 +42,20 @@
         <div class="stats">
           <h3>Weight</h3>
           <div class="progress">
-            <div class="progress-bar bg-info" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%">
-              <span class="sr-only">70% Complete</span>
+            <div id="weight-bar" class="progress-bar bg-info" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+              <span class="sr-only"></span>
             </div>
           </div>
           <h3>Damage</h3>
           <div class="progress">
-            <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%">
-              <span class="sr-only">70% Complete</span>
+            <div id="damage-bar" class="progress-bar bg-danger" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+              <span class="sr-only"></span>
             </div>
           </div>
           <h3>Protection</h3>
           <div class="progress">
-            <div class="progress-bar bg-success" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%">
-              <span class="sr-only">70% Complete</span>
+            <div id="protection-bar" class="progress-bar bg-success" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+              <span class="sr-only"></span>
             </div>
           </div>
 

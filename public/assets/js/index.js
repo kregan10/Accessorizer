@@ -21,6 +21,10 @@ let element = document.getElementsByClassName('dropzone'),
 let draggableElement;
 let dropzoneElement;
 
+// Our item and itemType currently selected
+let item;
+let itemType;
+
 // Initialize our character object
 let character = {
     slots: {
@@ -96,20 +100,23 @@ function itemReset(draggable) {
 function addItem(item, itemType) {
 
     // Get stats from our item's tooltip div
-    let damage = $('#' + item + ' .coupontooltip #damage').html();
-    let protection = $('#' + item + ' .coupontooltip #protection').html();
-    let weight = $('#' + item + ' .coupontooltip #weight').html();
+    let damage = $('#' + item + ' .coupontooltip .coupontooltip-text #damage').html();
+    let protection = $('#' + item + ' .coupontooltip .coupontooltip-text #protection').html();
+    let weight = $('#' + item + ' .coupontooltip .coupontooltip-text #weight').html();
 
     // Sum stats from new item
-    character.stats.damage += parseInt(damage);
-    character.stats.protection += parseInt(protection);
-    character.stats.weight += parseInt(weight);
+    character.stats.damage += parseInt(damage) || 0;
+    character.stats.protection += parseInt(protection) || 0;
+    character.stats.weight += parseInt(weight) || 0;
+
+    console.log(character);
 
     // Fill character's slot for that item type
     character.slots[itemType].isEquipped = true;
     character.slots[itemType].item = item;
 
-    console.log(character);
+    updateStatsBars();
+
 }
 
 /**
@@ -138,7 +145,34 @@ function removeItem(item, itemType) {
     character.slots[itemType].isEquipped = false;
     character.slots[itemType].item = null;
 
-    console.log(character);
+    updateStatsBars();
+
+}
+
+/**
+ * Update the values of the stats bars to represent character's current stats.
+ */
+function updateStatsBars() {
+
+    // Get our stats bars
+    let damageBar = $('.stats .progress #damage-bar').get(0);
+    let protectionBar = $('.stats .progress #protection-bar').get(0);
+    let weightBar = $('.stats .progress #weight-bar').get(0);
+
+    console.log(parseInt(character.stats.damage))
+
+    damageBar.setAttribute('aria-valuenow', parseInt(character.stats.damage));
+    protectionBar.setAttribute('aria-valuenow', character.stats.protection);
+    weightBar.setAttribute('aria-valuenow', character.stats.weight);
+
+    damageBar.style.width = "" + character.stats.damage + "%";
+    protectionBar.style.width = "" + character.stats.protection  + "%";
+    weightBar.style.width = "" + character.stats.weight + "%";
+
+    // console.log(damageBar);
+    // console.log(protectionBar);
+    // console.log(weightBar);
+
 }
 
 /* Interact.js Implementation and Listeners
@@ -235,12 +269,17 @@ interact('.dropzone').dropzone({
         draggableElement = event.relatedTarget;
         dropzoneElement = event.target;
 
+        // The item and type that we're dragging (i.e. head, chest, etc.)
+        item = draggableElement.parentElement.id;
+        itemType = draggableElement.classList.item(2);
+
         // feedback the possibility of a drop
         dropzoneElement.classList.add('drop-target');
 
         // Checks if it's a valid item for this slot. If it is, apply
         // green background - if not, apply red.
-        if (isValidItem(draggableElement, dropzoneElement)) {
+        if (isValidItem(draggableElement, dropzoneElement)
+            && !character.slots[itemType].isEquipped) {
 
           draggableElement.classList.add('can-drop');
 
@@ -262,11 +301,12 @@ interact('.dropzone').dropzone({
         dropzoneElement = event.target;
 
         // The item and type that we're dragging (i.e. head, chest, etc.)
-        let item = draggableElement.parentElement.id;
-        let itemType = draggableElement.classList.item(2);
+        item = draggableElement.parentElement.id;
+        itemType = draggableElement.classList.item(2);
 
         // Remove our character's stats attributed to this item
-        if (character.slots[itemType].isEquipped) {
+        if (character.slots[itemType].isEquipped
+            && draggableElement.classList.contains('can-drop')) {
             removeItem(item, itemType)
         }
 
@@ -289,8 +329,8 @@ interact('.dropzone').dropzone({
         draggableElement = event.relatedTarget;
 
         // The item name and type that we're dragging
-        let item = draggableElement.parentElement.id;
-        let itemType = draggableElement.classList.item(2);
+        item = draggableElement.parentElement.id;
+        itemType = draggableElement.classList.item(2);
 
         // Check if this is a valid drop zone for this itemType
         if (isValidItem(draggableElement, dropzoneElement)
