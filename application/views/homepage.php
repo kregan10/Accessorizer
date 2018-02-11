@@ -37,11 +37,11 @@
 
         <!-- These are the slots for the items -->
         <div class="slots">
-          <?php foreach ($categories as $category): ?>
-            <div id="<?php echo strtolower($category->name); ?>" class="dropzone <?php echo strtolower($category->name); ?>">
-              <?php echo $category->name ?>
+          {categories}
+            <div id="{categoryName}" class="dropzone {categoryName}" style="text-transform: capitalize">
+              {categoryName}
             </div>
-          <?php endforeach; ?>
+          {/categories}
         </div>
 
     </div>
