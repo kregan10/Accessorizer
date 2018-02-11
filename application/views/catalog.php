@@ -7,55 +7,52 @@
         <!-- These are the items.
         TODO: give an ID to each for indentification -->
         <div id="all-items" class="items">
-          <?php $count = -1; ?>
-          <?php foreach ($accessories as $accessory): ?>
-            <?php if ($count < $accessory->categoriesId): ?>
-                <?php $count = $accessory->categoriesId; ?>
-                <h2><?php echo $categories[$count]->name; ?></h2>
-            <?php endif; ?>
-            <div id="<?php echo $accessory->name; ?>" class="couponcode">
-                <img class="draggable drag-drop <?php echo strtolower($categories[$accessory->categoriesId]->name); ?>" src="<?php echo $accessory->image; ?>"/>
+          {categories}
+            <h2>{categoryName}</h2>
+            {accessories}
+              <div id="{accessoryName}" class="couponcode">
+                <img class="draggable drag-drop {categoryName}" src="{accessoryImage}"/>
                 <div class="coupontooltip">
                   <div class="coupontooltip-text">
-                      <h4><?php echo $accessory->displayName; ?></h4>
-                      <table class="table table-striped">
-                        <thead>
-                          <tr>
-                            <th scope="col">Attribute</th>
-                            <th scope="col">Level</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td>Weight</td>
-                            <td id="weight"><?php echo $accessory->weight; ?></td>
-                          </tr>
-                          <tr>
-                            <td>Damage</td>
-                            <td id="damage"><?php echo $accessory->damage; ?></td>
-                          </tr>
-                          <tr>
-                            <td>Protection</td>
-                            <td id="protection"><?php echo $accessory->protection; ?></td>
-                          </tr>
-                        </tbody>
+                    <h4>{accessoryDisplayName}</h4>
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th scope="col">Attribute</th>
+                          <th scope="col">Level</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>Weight</td>
+                          <td id="weight">{accessoryWeight}</td>
+                        </tr>
+                        <tr>
+                          <td>Damage</td>
+                          <td id="damage">{accessoryDamage}</td>
+                        </tr>
+                        <tr>
+                          <td>Protection</td>
+                          <td id="protection">{accessoryProtection}</td>
+                        </tr>
+                      </tbody>
                     </table>
                   </div>
                 </div>
-            </div>
-          <?php endforeach; ?>
-
+              </div>
+            {/accessories}
+          {/categories}
         </div>
 
         <br />
 
         <!-- These are the slots for the items -->
         <div class="slots">
-          <?php foreach ($categories as $category): ?>
-            <div id="<?php echo strtolower($category->name); ?>" class="dropzone <?php echo strtolower($category->name); ?>">
-              <?php echo $category->name ?>
+          {categories}
+            <div id="{categoryName}" class="dropzone {categoryName}" style="text-transform: capitalize">
+              {categoryName}
             </div>
-          <?php endforeach; ?>
+          {/categories}
         </div>
 
         <div class="stats">

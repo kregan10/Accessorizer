@@ -1,4 +1,4 @@
-id,name,image,weight,damage,protection,displayName,categoriesId
+accessoryId,accessoryName,accessoryImage,accessoryWeight,accessoryDamage,accessoryProtection,accessoryDisplayName,categoryId
 0,frying-pan,assets/img/frying-pan.png,10,10,10,Frying Pan,0
 1,groza,assets/img/groza.png,20,30,0,Groza,0
 2,m16,assets/img/M16.png,40,40,0,M16,0
