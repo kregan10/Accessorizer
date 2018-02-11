@@ -171,3 +171,8 @@ Fixes:
 
     Features:
         - Added slots to the homepage
+
+# 1.1.8 (2018-02-11)
+
+    Features:
+        - Loaded item sets dynamically
