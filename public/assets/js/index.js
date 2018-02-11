@@ -21,12 +21,31 @@ let element = document.getElementsByClassName('dropzone'),
 let draggableElement;
 let dropzoneElement;
 
-// Initialize our equipment checks (do we have a weapon, etc.)
-let isEquipped = {
-    head:       false,
-    chest:      false,
-    weapon:     false,
-    accessory:  false
+// Initialize our character object
+let character = {
+    slots: {
+        head: {
+            isEquipped: false,
+            item: null
+        },
+        chest: {
+            isEquipped: false,
+            item: null
+        },
+        weapon: {
+            isEquipped: false,
+            item: null
+        },
+        accessory: {
+            isEquipped: false,
+            item: null
+        },
+    },
+    stats: {
+        damage: 0,
+        weight: 0,
+        protection: 0
+    }
 }
 
 /* Drag-and-Drop Functions
@@ -67,6 +86,59 @@ function itemRemoveTranslation(draggable) {
 function itemReset(draggable) {
     itemRemoveColor(draggable);
     itemRemoveTranslation(draggable);
+}
+
+/**
+ * Add to our character's stats total.
+ * @param {[type]} item     the item
+ * @param {[type]} itemType the item type
+ */
+function addItem(item, itemType) {
+
+    // Get stats from our item's tooltip div
+    let damage = $('#' + item + ' .coupontooltip #damage').html();
+    let protection = $('#' + item + ' .coupontooltip #protection').html();
+    let weight = $('#' + item + ' .coupontooltip #weight').html();
+
+    // Sum stats from new item
+    character.stats.damage += parseInt(damage);
+    character.stats.protection += parseInt(protection);
+    character.stats.weight += parseInt(weight);
+
+    // Fill character's slot for that item type
+    character.slots[itemType].isEquipped = true;
+    character.slots[itemType].item = item;
+
+    console.log(character);
+}
+
+/**
+ * Remove stats from our character's total upon removal of item
+ * @param {[type]} item     the item
+ * @param {[type]} itemType the item type
+ */
+function removeItem(item, itemType) {
+
+    // Get stats from our item's tooltip div
+    let damage = $('#' + item + ' .coupontooltip #damage').html();
+    let protection = $('#' + item + ' .coupontooltip #protection').html();
+    let weight = $('#' + item + ' .coupontooltip #weight').html();
+
+    // Remove the stats from our character
+    character.stats.damage -= parseInt(damage);
+    character.stats.protection -= parseInt(protection);
+    character.stats.weight -= parseInt(weight);
+
+    // Don't let glitches ruin our stat floor
+    if (character.stats.damage < 0) character.stats.damage = 0;
+    if (character.stats.protection < 0) character.stats.protection = 0;
+    if (character.stats.weight < 0) character.stats.weight = 0;
+
+    // Empty the item slot upon the item leaving drag area.
+    character.slots[itemType].isEquipped = false;
+    character.slots[itemType].item = null;
+
+    console.log(character);
 }
 
 /* Interact.js Implementation and Listeners
@@ -169,9 +241,13 @@ interact('.dropzone').dropzone({
         // Checks if it's a valid item for this slot. If it is, apply
         // green background - if not, apply red.
         if (isValidItem(draggableElement, dropzoneElement)) {
+
           draggableElement.classList.add('can-drop');
+
         } else {
+
           draggableElement.classList.add('can-not-drop');
+
         }
 
     },
@@ -184,9 +260,21 @@ interact('.dropzone').dropzone({
 
         draggableElement = event.relatedTarget;
         dropzoneElement = event.target;
-        isEquipped[draggableElement.classList.item(2)] = false;
-        dropzoneElement.classList.remove('drop-target');
+
+        // The item and type that we're dragging (i.e. head, chest, etc.)
+        let item = draggableElement.parentElement.id;
+        let itemType = draggableElement.classList.item(2);
+
+        // Remove our character's stats attributed to this item
+        if (character.slots[itemType].isEquipped) {
+            removeItem(item, itemType)
+        }
+
+        // Reset the color of our item back to normal
         itemRemoveColor(draggableElement);
+
+        // Turn off our slot feedback
+        dropzoneElement.classList.remove('drop-target');
 
     },
 
@@ -200,17 +288,29 @@ interact('.dropzone').dropzone({
         dropzoneElement = event.target;
         draggableElement = event.relatedTarget;
 
-        // Lets check if this is a valid drop zone
+        // The item name and type that we're dragging
+        let item = draggableElement.parentElement.id;
+        let itemType = draggableElement.classList.item(2);
+
+        // Check if this is a valid drop zone for this itemType
         if (isValidItem(draggableElement, dropzoneElement)
-        && !isEquipped[draggableElement.classList.item(2)]) {
-            isEquipped[draggableElement.classList.item(2)] = true;
+            && !character.slots[itemType].isEquipped) {
+
+            // Depending on our item, add stats to character's total.
+            addItem(item, itemType);
+
         } else {
+
+            // Invalid item, remove color and return to origin position
             itemReset(draggableElement);
+
         }
     },
     ondropdeactivate: function(event) {
+
         // remove active dropzone feedback
         event.target.classList.remove('drop-active');
         event.target.classList.remove('drop-target');
+
     }
 });

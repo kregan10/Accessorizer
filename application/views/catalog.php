@@ -14,11 +14,11 @@
                 <h2><?php echo $categories[$count]->name; ?></h2>
             <?php endif; ?>
             <div id="<?php echo $accessory->name; ?>" class="couponcode">
-              <img class="draggable drag-drop <?php echo strtolower($categories[$accessory->categoriesId]->name); ?>" src="<?php echo $accessory->image; ?>"/>
+                <img class="draggable drag-drop <?php echo strtolower($categories[$accessory->categoriesId]->name); ?>" src="<?php echo $accessory->image; ?>"/>
                 <div class="coupontooltip">
-                  <p>Damage: <?php echo $accessory->damage; ?></p>
-                  <p>Protection: <?php echo $accessory->protection; ?></p>
-                  <p>Weight: <?php echo $accessory->weight; ?></p>
+                  <p>Damage: <span id="damage"><?php echo $accessory->damage; ?></span></p>
+                  <p>Protection: <span id="protection"><?php echo $accessory->protection; ?></span></p>
+                  <p>Weight: <span id="weight"><?php echo $accessory->weight; ?></span></p>
                 </div>
             </div>
           <?php endforeach; ?>
