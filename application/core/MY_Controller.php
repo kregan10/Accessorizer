@@ -23,7 +23,7 @@ class Application extends CI_Controller
 
 		//  Set basic view parameters
 		$this->data = array ();
-		$this->data['pagetitle'] = 'TODO List Manager';
+		$this->data['pagetitle'] = 'PUBG Kit Selector';
 		$this->data['ci_version'] = (ENVIRONMENT === 'development') ? 'CodeIgniter Version <strong>'.CI_VERSION.'</strong>' : '';
 	}
 
