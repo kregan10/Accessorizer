@@ -114,3 +114,27 @@ Features:
 
     Fixes:
         - Changed config.php session path back to the original
+        - Removed info controller return values
+
+## 1.1.1 (2018-02-19)
+
+    Fixes:
+        - Added some styling for tooltips
+
+## 1.1.2 (2018-02-19)
+
+    Features:
+        - character object in the js
+            - holds necasary info on items and stats
+        - Implemented totaling of stats on character through Listeners
+
+    Fixes:
+        - Refactored everything; general cleanup
+
+## 1.1.3 (2018-02-19)
+
+    Features:
+        - stats bars now coordinate with updating of character's stats
+
+    Fixes:
+        - Some merge conflicts (left over git tags)
