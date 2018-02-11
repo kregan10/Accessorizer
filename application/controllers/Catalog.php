@@ -10,8 +10,6 @@ class Catalog extends Application
 	 */
 	public function index()
 	{
-		//$accessories = $this->accessories->all();
-		$response = array();
 		$categories = $this->categories->all();
 		foreach ($categories as $category) {
 			$accessories = $this->accessories->some('categoryId', $category->categoryId);
@@ -20,7 +18,7 @@ class Catalog extends Application
 			}
 			$category->accessories = $accessories;
 		}
-        //$this->data['accessories'] = $accessories;
+
         $this->data['categories'] = $categories;
         $this->data['pagebody'] = 'catalog';
 		$this->data['pagetitle'] = 'Accessorize Soldier!';
