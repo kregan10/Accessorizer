@@ -32,7 +32,7 @@
                 <span class="caret"></span></button>
                 <ul id="homepage-presets" class="dropdown-menu">
                   {sets}
-                    <li class="dropdown-item" style="text-transform: capitalize"><a href="#">{name}</a></li>
+                    <li class="dropdown-item" data-setid="{id}" style="text-transform: capitalize"><a>{name}</a></li>
                   {/sets}
                 </ul>
             </div>
