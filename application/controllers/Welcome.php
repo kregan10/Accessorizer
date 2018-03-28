@@ -29,6 +29,7 @@ class Welcome extends Application
         $this->data['categories'] = $categories;
 		$this->data['pagebody'] = 'homepage';
 		$this->data['pagetitle'] = 'Choose your preset';
+
 		$this->render();
 	}
 
