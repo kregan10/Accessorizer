@@ -93,5 +93,5 @@ defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest auto
 |
 */
 defined('ROLE_GUEST') OR define('ROLE_GUEST', 'Guest');
-defined('ROLE_OWNER') OR define('ROLE_OWNER', 'Owner');
+defined('ROLE_USER') OR define('ROLE_USER', 'User');
 defined('ROLE_ADMIN') OR define('ROLE_ADMIN', 'Admin');
