@@ -2,6 +2,10 @@
 
 ### Note: Add changelog at the bottom of the file
 
+## 1.0.1 (2018-03-28)
+Fix:
+  - session files path update
+
 ## 1.0.0 (2018-02-08)
 
 Features:
@@ -192,3 +196,11 @@ Features:
     Features:
         - Added data.js to load data using ajax.
         - Added preset loading on the homepage.
+        
+
+## 1.2.3 (2018-02-11)
+
+    Fixes:
+        - Added a back-drop and container to About page write-up
+        - Darkened font drop-shadow
+        - Removed white border from tooltip
