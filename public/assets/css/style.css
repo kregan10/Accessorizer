@@ -283,3 +283,21 @@ nav {
   color: white;
   text-shadow: 1px 1px black;
 }
+
+#role-dropdown {
+    margin-top: 0;
+    margin-left: 5px;
+}
+
+#role-dropdown .btn {
+    margin: 0;
+}
+
+#user-role-display {
+    margin: 0;
+}
+
+.dropdown-item a {
+    color: black;
+    text-decoration: none;
+}
