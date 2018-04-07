@@ -33,9 +33,6 @@ class Set extends Application
     }
 
     public function save() {
-        $this->load->library('form_validation');
-        $this->form_validation->set_rules($this->sets->rules());
-
         $set = (array) $this->session->userdata('set');
         $set = array_merge($set, $this->input->post());
         
