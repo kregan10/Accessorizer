@@ -13,6 +13,7 @@ $(function() {
      */
     function loadPreset()
     {
+        characterReset();
         // Get the set id.
         var setID = $(this).attr("data-setid");
 
@@ -22,27 +23,45 @@ $(function() {
             // Load in the accessories.
             data.getCatalog(null, function(catalog) {
 
-                // Set chest preset.
-                $('#chest').html('');
-                $('#chest').prepend('<img class="draggable drag-drop chest can-drop" src="' + catalog[set["chest"]].accessoryImage + '" />')
+                var damage = 0;
+                var protection = 0;
+                var weight = 0;
+
+                if (set["chest"]) {
+                    // Set chest preset.
+                    $('#chest').html('');
+                    $('#chest').prepend('<img class="draggable drag-drop chest can-drop" src="' + catalog[set["chest"]].accessoryImage + '" />')    
+                    damage += parseInt(catalog[set["chest"]].accessoryDamage);
+                    protection += parseInt(catalog[set["chest"]].accessoryProtection);
+                    weight += parseInt(catalog[set["chest"]].accessoryWeight);
+                }
                 
-                // Set head preset.
-                $('#head').html('');
-                $('#head').prepend('<img class="draggable drag-drop head can-drop" src="' + catalog[set["head"]].accessoryImage + '" />')
+                if (set["head"]) {
+                    // Set head preset.
+                    $('#head').html('');
+                    $('#head').prepend('<img class="draggable drag-drop head can-drop" src="' + catalog[set["head"]].accessoryImage + '" />')
+                    damage += parseInt(catalog[set["head"]].accessoryDamage);
+                    protection += parseInt(catalog[set["head"]].accessoryProtection);
+                    weight += parseInt(catalog[set["head"]].accessoryWeight);
+                }
 
-                // Set weapon preset.
-                $('#weapon').html('');
-                $('#weapon').prepend('<img class="draggable drag-drop weapon can-drop" src="' + catalog[set["weapon"]].accessoryImage + '" />')
+                if (set["weapon"]) {
+                    // Set weapon preset.
+                    $('#weapon').html('');
+                    $('#weapon').prepend('<img class="draggable drag-drop weapon can-drop" src="' + catalog[set["weapon"]].accessoryImage + '" />')
+                    damage += parseInt(catalog[set["weapon"]].accessoryDamage);
+                    protection += parseInt(catalog[set["weapon"]].accessoryProtection);
+                    weight += parseInt(catalog[set["weapon"]].accessoryWeight);
+                }
 
-                // Set accessory preset.
-                $('#accessory').html('');
-                $('#accessory').prepend('<img class="draggable drag-drop accessory can-drop" src="' + catalog[set["accessory"]].accessoryImage + '" />')
-
-                // Get the values of all the sets.
-                // TODO: Add a column in pre-defined sets with this value calculated beforehand.
-                var damage = parseInt(catalog[set["chest"]].accessoryDamage) + parseInt(catalog[set["head"]].accessoryDamage) + parseInt(catalog[set["weapon"]].accessoryDamage) + parseInt(catalog[set["accessory"]].accessoryDamage);
-                var protection = parseInt(catalog[set["chest"]].accessoryProtection) + parseInt(catalog[set["head"]].accessoryProtection) + parseInt(catalog[set["weapon"]].accessoryProtection) + parseInt(catalog[set["accessory"]].accessoryProtection);
-                var weight = parseInt(catalog[set["chest"]].accessoryWeight) + parseInt(catalog[set["head"]].accessoryWeight) + parseInt(catalog[set["weapon"]].accessoryWeight) + parseInt(catalog[set["accessory"]].accessoryWeight);
+                if (set["accessory"]) {
+                    // Set accessory preset.
+                   $('#accessory').html('');
+                   $('#accessory').prepend('<img class="draggable drag-drop accessory can-drop" src="' + catalog[set["accessory"]].accessoryImage + '" />')
+                   damage += parseInt(catalog[set["accessory"]].accessoryDamage);
+                   protection += parseInt(catalog[set["accessory"]].accessoryProtection);
+                   weight += parseInt(catalog[set["accessory"]].accessoryWeight);
+                }
 
                 // Get our stats bars
                 let damageBar = $('.stats .progress #damage-bar').get(0);

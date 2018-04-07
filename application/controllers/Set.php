@@ -5,103 +5,63 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Set extends Application
 {
 
-	/**
-	 * Index page.
-	 */
-	public function index()
-	{
-		$categories = $this->categories->all();
-		foreach ($categories as $category) {
-			$accessories = $this->accessories->some('categoryId', $category->categoryId);
-			foreach ($accessories as $accessory) {
-				$accessory->categoryName = $category->categoryName;
-			}
-			$category->accessories = $accessories;
-		}
+    /**
+     * Index page.
+     */
+    public function index()
+    {
+        $set = $this->sets->create();
+        $this->session->set_userdata('set', $set);
 
-		$sets = $this->sets->all();
-		$this->data['categories'] = $categories;
-		$this->data['sets'] = $sets;
-		$this->data['pagebody'] = 'set';
-		$this->data['pagetitle'] = 'Accessorize Soldier!';
-		$this->render();
-	}
+        $categories = $this->categories->all();
+        foreach ($categories as $category) {
+            $accessories = $this->accessories->some('categoryId', $category->categoryId);
+            foreach ($accessories as $accessory) {
+                $accessory->categoryName = $category->categoryName;
+            }
+            $category->accessories = $accessories;
+        }
 
-	public function save_set() {
-	
-	$input_from_form = $this->input->post();
+        $sets = $this->sets->all();
 
-	$formData = array(
-		'weapon' => $this->input->post('weapon'),
-		'head' => $this->input->post('head'),
-		'accessory' => $this->input->post('accessory'),
-		'chest' => $this->input->post('chest'),
-		'set_name' => $this->input->post('set'),
-	);
+        $this->data['categories'] = $categories;
+        $this->data['sets'] = $sets;
+        $this->data['pagebody'] = 'set';
+        $this->data['pagetitle'] = 'Accessorize Soldier!';
+        $this->render();
+        
+    }
 
-	
-	//need to open Accessories.csv, and match up the name to to id
-	// Set: id,name,weapon,head,chest,accessory
+    public function save() {
+        $this->load->library('form_validation');
+        $this->form_validation->set_rules($this->sets->rules());
 
-	$newSetName = $formData['set_name'];
-	$newWeaponId = "";
-	$newHeadId = "";
-	$newChestId = "";
-	$newAccessoryId = "";
+        $set = (array) $this->session->userdata('set');
+        $set = array_merge($set, $this->input->post());
+        
+        $set = (object) $set;
+        $this->session->set_userdata('set', (object) $set);
 
-	// Assigning id's to their respective values in the csv file
-	if (($handle = fopen("../data/Accessories.csv", "r")) !== FALSE) {
-		while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
-				$num = count($data);
-				if (strcmp($data[1], $formData["weapon"]) == 0) {
-					$newWeaponId = $data[0];
-				}
-				if (strcmp($data[1], $formData["head"]) == 0) {
-					$newHeadId = $data[0];
-				}
-				if (strcmp($data[1], $formData["accessory"]) == 0) {
-					$newAccessoryId = $data[0];
-				}
-				if (strcmp($data[1], $formData["chest"]) == 0) {
-					$newChestId = $data[0];
-				}
-		}
-		fclose($handle);
-	}
+        if (!empty($set->name)) {
+            $set->id = $this->sets->highest() + 1;
+            
+            if (!empty($set->weapon)) {
+                $set->weapon = $this->accessories->some('accessoryName', $set->weapon)[0]->accessoryId;
+            }
 
-	echo "Who am I? ";
-	echo exec('whoami');
-	$newID = -1;
-	if (($handle = fopen("../data/Sets.csv", "r+")) !== FALSE) {
-		while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
-				$num = count($data);
-				$newID++;
-				for ($c=0; $c < $num; $c++) {
-						echo $data[$c] . "<br />\n";
-				}
-		}
-	}
+            if (!empty($set->head)) {
+                $set->head = $this->accessories->some('accessoryName', $set->head)[0]->accessoryId;
+            }
+    
+            if (!empty($set->chest)) {
+                $set->chest = $this->accessories->some('accessoryName', $set->chest)[0]->accessoryId;
+            }
+    
+            if (!empty($set->accessory)) {
+                $set->accessory = $this->accessories->some('accessoryName', $set->accessory)[0]->accessoryId;
+            }
 
-		$newSet = array (
-		"$newID,$newSetName,$newWeaponId,$newHeadId,$newAccessoryId"
-		);
-
-		foreach ($newSet as $line) {
-			echo "Putting in $line";
-			fputcsv($handle,explode(',',$line));
-		}
-		fclose($handle);
-
-
-	// 		redirect('/set'); 
-}
-
-	public function add()
-	{
-    $set = $this->sets->create();
-    $this->session->set_userdata('set', $set);
-    $this->showit();
-	}
-
-
+            $this->sets->add($set);
+        }
+    }
 }

@@ -47,7 +47,7 @@
         <br />
 
         <!-- These are the slots for the items -->
-        <form action="set/save_set" method="post" id="set-form">
+        <form action="set/save" method="post" id="set-form">
           <div class="slots">
             {categories}
               <div id="{categoryName}" class="dropzone {categoryName}" style="text-transform: capitalize">
@@ -79,8 +79,8 @@
             </div>
 
             <div class="row">
-                <input id="set-name" form="set-form" class="form-control" type="text" name="set" placeholder="Set Name">
-                <input id="set-save" form="set-form" class="btn btn-success mx-auto" type="submit" name="submit" value="Save">
+                <input id="set-name" form="set-form" class="form-control" type="text" name="name" placeholder="Set Name" required>
+                <input id="set-save" form="set-form" class="btn btn-success mx-auto" type="submit" value="Save">
             </div>
             <div class="row">
                 <input id="set-reset" class="btn btn-danger mx-auto" type="reset" name="reset" value="Reset">
@@ -97,7 +97,6 @@
             </div>
 
           </div>
-        
     </div>
 </div>
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>

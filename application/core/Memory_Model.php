@@ -122,7 +122,7 @@ class Memory_Model extends CI_Model implements DataMapper {
     // populate it.
     function create() {
 	$names = $this->_fields;
-	$object = new $this->_entity;;
+	$object = new StdClass;
 	foreach ($names as $name)
 	    $object->$name = "";
 	return $object;
@@ -209,8 +209,8 @@ class Memory_Model extends CI_Model implements DataMapper {
 
     // Determine the highest key used
     function highest() {
-	$last = end($this->_data);
-	return $last[$this->_keyfield];
+	    end($this->_data);
+	    return key($this->_data);
     }
 
     // Retrieve first record from a table.
