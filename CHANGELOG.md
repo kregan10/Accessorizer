@@ -2,6 +2,10 @@
 
 ### Note: Add changelog at the bottom of the file
 
+## 2.0.1 (2018-04-07)
+Feature:
+  - Create a set
+
 ## 2.0.0 (2018-04-04)
 Feature:
   - user roles
