@@ -26,7 +26,7 @@ class Welcome extends Application
 		$sets = $this->sets->all();
 		
 		$this->data['sets'] = $sets;
-        $this->data['categories'] = $categories;
+    $this->data['categories'] = $categories;
 		$this->data['pagebody'] = 'homepage';
 		$this->data['pagetitle'] = 'Choose your preset';
 
