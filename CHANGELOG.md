@@ -2,6 +2,16 @@
 
 ### Note: Add changelog at the bottom of the file
 
+## 2.0.1 (2018-04-07)
+Feature:
+  - Create a set
+
+## 2.0.0 (2018-04-04)
+Feature:
+  - user roles
+  - unit testing
+  - accessory entity model
+
 ## 1.0.1 (2018-03-28)
 Fix:
   - session files path update

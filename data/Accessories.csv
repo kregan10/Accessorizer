@@ -6,7 +6,7 @@ accessoryId,accessoryName,accessoryImage,accessoryWeight,accessoryDamage,accesso
 4,level3-helmet,assets/img/level3-helmet.png,25,0,30,Heavy Helmet,1
 5,level2-helmet,assets/img/level2-helmet.png,10,0,18,Light Helmet,1
 6,smoke-grenade,assets/img/smoke-grenade.png,10,0,0,Smoke Grenade,2
-7,frag-grenae,assets/img/frag-grenade.png,15,40,0,Frag Grenade,2
+7,frag-grenade,assets/img/frag-grenade.png,15,40,0,Frag Grenade,2
 8,redbull,assets/img/redbull.png,5,0,0,Red Bull,2
 9,level1-vest,assets/img/level1-vest.png,30,0,40,Light Vest,3
 10,level2-vest,assets/img/level2-vest.png,35,0,50,Medium Vest,3
